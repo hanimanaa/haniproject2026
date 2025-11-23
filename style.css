@@ -112,7 +112,10 @@ pre {
     font-size: 0.95em;
     line-height: 1.4;
     border: 1px solid #007bff;
+    direction: ltr;
+    text-align: left;
 }
+
 
 /* تنسيق عرض الصور */
 .image-gallery {
