@@ -1,47 +1,28 @@
-
-
 // =================================================================
-//                 إعدادات جلب الكود من GitHub
+// هذا الملف لم يعد يحتوي على متغيرات ثابتة!
+// سيتم قراءة إعدادات GitHub من سمات البيانات في ملف index.html
 // =================================================================
-// 🚨 يرجى استبدال هذه المتغيرات الثلاثة (USERNAME, REPO_NAME, FILE_PATH) بمعلومات مشروعك الحقيقية 🚨
 
-const GITHUB_USERNAME = "hanimanaa"; // اسم مستخدمك في GitHub
-const REPO_NAME = "haniproject2026"; // اسم مستودع المشروع
-const FILE_PATH = "Model/Product.cs"; // المسار الكامل للملف داخل المستودع (مثال)
+// العناصر اللازمة لميزة التمييز النشط (تبقى كما هي)
+const sections = document.querySelectorAll('.content section'); 
+const navLinks = document.querySelectorAll('.sidebar ul li a'); 
 
-// بناء رابط الملف الخام (Raw URL)
-const RAW_FILE_URL = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}`;
-// بناء رابط الملف على واجهة GitHub (للنقر)
-const GITHUB_LINK_URL = `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/blob/main/${FILE_PATH}`;
-
-
-// =================================================================
-//                 منطق تمييز الرابط النشط
-// =================================================================
-const sections = document.querySelectorAll('.content section'); // جميع الأقسام
-const navLinks = document.querySelectorAll('.sidebar ul li a'); // جميع الروابط
-
-// دالة تحديد القسم النشط وتمييز الرابط المقابل له
+// دالة تحديد القسم النشط (تبقى كما هي)
 function highlightActiveLink() {
     let currentSectionId = '';
-    const scrollY = window.scrollY; // موضع التمرير الحالي
+    const scrollY = window.scrollY; 
 
-    // تكرار على الأقسام لتحديد القسم الذي يظهر في منطقة العرض
     sections.forEach(section => {
-        // نستخدم -100px لإضافة مسافة للأمان عند التمرير (Offset)
         if (scrollY >= section.offsetTop - 100) {
             currentSectionId = section.getAttribute('id');
         }
     });
 
-    // إزالة الفئة النشطة من جميع الروابط
     navLinks.forEach(a => {
         a.classList.remove('active');
     });
 
-    // إضافة الفئة النشطة للرابط المطابق لـ currentSectionId
     navLinks.forEach(a => {
-        // نقارن بين نهاية الرابط (مثل #introduction) والمعرّف الحالي
         if (a.href.endsWith(currentSectionId)) {
             a.classList.add('active');
         }
@@ -49,21 +30,34 @@ function highlightActiveLink() {
 }
 
 
-// =================================================================
-//                 تنفيذ الدوال عند تحميل الصفحة
-// =================================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // ⚠️ ملاحظة: نحن نستهدف الآن وسم <code> داخل وسم <pre>
+    
     const codeBlock = document.getElementById('github-code-block');
     const fileLink = document.getElementById('github-file-link');
 
-    // 1. تحديث رابط "عرض الملف على GitHub"
-    if (fileLink) {
-        fileLink.href = GITHUB_LINK_URL;
-    }
-
-    // 2. جلب محتوى الكود من GitHub
     if (codeBlock) {
+        // 🌟 الخطوة الجديدة: قراءة البيانات من سمات HTML 🌟
+        const GITHUB_USERNAME = codeBlock.dataset.githubUser || "DefaultUser";
+        const REPO_NAME = codeBlock.dataset.repoName || "DefaultRepo";
+        const FILE_PATH = codeBlock.dataset.filePath;
+        const LANGUAGE = codeBlock.dataset.language || "clike"; // لغة التلوين
+
+        if (!FILE_PATH) {
+            codeBlock.textContent = "خطأ: لم يتم تحديد مسار الملف (data-file-path) في HTML.";
+            return;
+        }
+        
+        // بناء رابط الملف الخام (Raw URL)
+        const RAW_FILE_URL = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}`;
+        // بناء رابط الملف على واجهة GitHub (للنقر)
+        const GITHUB_LINK_URL = `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/blob/main/${FILE_PATH}`;
+
+        // 1. تحديث رابط "عرض الملف على GitHub"
+        if (fileLink) {
+            fileLink.href = GITHUB_LINK_URL;
+        }
+        
+        // 2. جلب محتوى الكود من GitHub
         fetch(RAW_FILE_URL)
             .then(response => {
                 if (!response.ok) {
@@ -75,22 +69,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 // وضع الكود الخام
                 codeBlock.textContent = codeContent;
                 
-                // 🌟 تطبيق التلوين (Prism.js) 🌟
+                // 3. تطبيق التلوين (Prism.js)
                 if (window.Prism) {
-                     // هذه الدالة تخبر Prism.js بتطبيق التلوين على المحتوى الجديد
+                    // تحديث فئة اللغة في وسم <code> قبل التلوين
+                    codeBlock.className = `language-${LANGUAGE}`; 
                     Prism.highlightElement(codeBlock);
                 }
             })
             .catch(error => {
                 console.error("Failed to fetch code from GitHub:", error);
-                codeBlock.textContent = `عفواً، فشل تحميل الكود. تأكد من أن المستودع عام وأن المسار (${FILE_PATH}) صحيح.`;
+                codeBlock.textContent = `عفواً، فشل تحميل الكود من المسار: ${FILE_PATH}. تأكد من أن المستودع عام وأن المسار صحيح.`;
             });
     }
 
-    // 3. تفعيل ميزة التمييز النشط
-    // تشغيل الدالة عند تحميل الصفحة
+    // تفعيل ميزة التمييز النشط
     highlightActiveLink();
-    
-    // تشغيل الدالة كلما قام المستخدم بالتمرير
     window.addEventListener('scroll', highlightActiveLink);
 });
