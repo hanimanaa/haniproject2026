@@ -100,6 +100,13 @@ body {
         margin-top: 0;
         font-size: 2em;
     }
+        .content h3 {
+        color: #ffae00;
+        border-right: 5px solid #ffae00;
+        padding-right: 15px;
+        margin-top: 0;
+        font-size: 1em;
+    }
 
 /* تنسيق عرض الكود (من GitHub) */
 pre {
