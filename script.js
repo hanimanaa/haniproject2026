@@ -1,40 +1,40 @@
-// ** э╤╠ь ╟╙╩╚╧╟с х╨х ╟су╩█э╤╟╩ ╟с╦с╟╦╔ (USERNAME, REPO_NAME, FILE_PATH) ╚у┌сцу╟╩ у╘╤ц┌▀ ╟с═▐э▐э╔ **
+// ** ┘К╪▒╪м┘Й ╪з╪│╪к╪и╪п╪з┘Д ┘З╪░┘З ╪з┘Д┘Е╪к╪║┘К╪▒╪з╪к ╪з┘Д╪л┘Д╪з╪л╪й (USERNAME, REPO_NAME, FILE_PATH) ╪и┘Е╪╣┘Д┘И┘Е╪з╪к ┘Е╪┤╪▒┘И╪╣┘Г ╪з┘Д╪н┘В┘К┘В┘К╪й **
 
-const GITHUB_USERNAME = "AhmedDev"; // ╟╙у у╙╩╬╧у▀ ▌э GitHub
-const REPO_NAME = "Final-Project-Recommendation-System"; // ╟╙у у╙╩ц╧┌ ╟су╘╤ц┌
-const FILE_PATH = "src/model/Recommender.py"; // ╟су╙╟╤ ╟с▀╟ус ссус▌ ╧╟╬с ╟су╙╩ц╧┌ (у╦╟с)
+const GITHUB_USERNAME = "hanimanaa"; // ╪з╪│┘Е ┘Е╪│╪к╪о╪п┘Е┘Г ┘Б┘К GitHub
+const REPO_NAME = "haniproject2026"; // ╪з╪│┘Е ┘Е╪│╪к┘И╪п╪╣ ╪з┘Д┘Е╪┤╪▒┘И╪╣
+const FILE_PATH = "Model/Product.cs"; // ╪з┘Д┘Е╪│╪з╪▒ ╪з┘Д┘Г╪з┘Е┘Д ┘Д┘Д┘Е┘Д┘Б ╪п╪з╪о┘Д ╪з┘Д┘Е╪│╪к┘И╪п╪╣ (┘Е╪л╪з┘Д)
 
-// ╚ф╟┴ ╤╟╚╪ ╟сус▌ ╟с╬╟у (Raw URL)
+// ╪и┘Ж╪з╪б ╪▒╪з╪и╪╖ ╪з┘Д┘Е┘Д┘Б ╪з┘Д╪о╪з┘Е (Raw URL)
 const RAW_FILE_URL = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}`;
-// ╚ф╟┴ ╤╟╚╪ ╟сус▌ ┌сь ц╟╠х╔ GitHub (ссф▐╤)
+// ╪и┘Ж╪з╪б ╪▒╪з╪и╪╖ ╪з┘Д┘Е┘Д┘Б ╪╣┘Д┘Й ┘И╪з╪м┘З╪й GitHub (┘Д┘Д┘Ж┘В╪▒)
 const GITHUB_LINK_URL = `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/blob/main/${FILE_PATH}`;
 
 
-// ** ╟с┌ф╟╒╤ ╟сс╟╥у╔ суэ╥╔ ╟с╩уээ╥ ╟сф╘╪ **
-const sections = document.querySelectorAll('.content section'); // ╠уэ┌ ╟с├▐╙╟у
-const navLinks = document.querySelectorAll('.sidebar ul li a'); // ╠уэ┌ ╟с╤ц╟╚╪
+// ** ╪з┘Д╪╣┘Ж╪з╪╡╪▒ ╪з┘Д┘Д╪з╪▓┘Е╪й ┘Д┘Е┘К╪▓╪й ╪з┘Д╪к┘Е┘К┘К╪▓ ╪з┘Д┘Ж╪┤╪╖ **
+const sections = document.querySelectorAll('.content section'); // ╪м┘Е┘К╪╣ ╪з┘Д╪г┘В╪│╪з┘Е
+const navLinks = document.querySelectorAll('.sidebar ul li a'); // ╪м┘Е┘К╪╣ ╪з┘Д╪▒┘И╪з╪и╪╖
 
-// ╧╟с╔ ╩═╧э╧ ╟с▐╙у ╟сф╘╪ ц╩уээ╥ ╟с╤╟╚╪ ╟су▐╟╚с сх
+// ╪п╪з┘Д╪й ╪к╪н╪п┘К╪п ╪з┘Д┘В╪│┘Е ╪з┘Д┘Ж╪┤╪╖ ┘И╪к┘Е┘К┘К╪▓ ╪з┘Д╪▒╪з╪и╪╖ ╪з┘Д┘Е┘В╪з╪и┘Д ┘Д┘З
 function highlightActiveLink() {
     let currentSectionId = '';
-    const scrollY = window.scrollY; // уц╓┌ ╟с╩у╤э╤ ╟с═╟сэ
+    const scrollY = window.scrollY; // ┘Е┘И╪╢╪╣ ╪з┘Д╪к┘Е╪▒┘К╪▒ ╪з┘Д╪н╪з┘Д┘К
 
-    // ╩▀╤╟╤ ┌сь ╟с├▐╙╟у с╩═╧э╧ ╟с▐╙у ╟с╨э э┘х╤ ▌э уф╪▐╔ ╟с┌╤╓
+    // ╪к┘Г╪▒╪з╪▒ ╪╣┘Д┘Й ╪з┘Д╪г┘В╪│╪з┘Е ┘Д╪к╪н╪п┘К╪п ╪з┘Д┘В╪│┘Е ╪з┘Д╪░┘К ┘К╪╕┘З╪▒ ┘Б┘К ┘Е┘Ж╪╖┘В╪й ╪з┘Д╪╣╪▒╪╢
     sections.forEach(section => {
-        // ф╙╩╬╧у -100px с┼╓╟▌╔ у╙╟▌╔ сс├у╟ф ┌ф╧ ╟с╩у╤э╤
+        // ┘Ж╪│╪к╪о╪п┘Е -100px ┘Д╪е╪╢╪з┘Б╪й ┘Е╪│╪з┘Б╪й ┘Д┘Д╪г┘Е╪з┘Ж ╪╣┘Ж╪п ╪з┘Д╪к┘Е╪▒┘К╪▒
         if (scrollY >= section.offsetTop - 100) {
             currentSectionId = section.getAttribute('id');
         }
     });
 
-    // ┼╥╟с╔ ╟с▌╞╔ ╟сф╘╪╔ уф ╠уэ┌ ╟с╤ц╟╚╪
+    // ╪е╪▓╪з┘Д╪й ╪з┘Д┘Б╪ж╪й ╪з┘Д┘Ж╪┤╪╖╪й ┘Е┘Ж ╪м┘Е┘К╪╣ ╪з┘Д╪▒┘И╪з╪и╪╖
     navLinks.forEach(a => {
         a.classList.remove('active');
     });
 
-    // ┼╓╟▌╔ ╟с▌╞╔ ╟сф╘╪╔ сс╤╟╚╪ ╟су╪╟╚▐ с▄ currentSectionId
+    // ╪е╪╢╪з┘Б╪й ╪з┘Д┘Б╪ж╪й ╪з┘Д┘Ж╪┤╪╖╪й ┘Д┘Д╪▒╪з╪и╪╖ ╪з┘Д┘Е╪╖╪з╪и┘В ┘Д┘А currentSectionId
     navLinks.forEach(a => {
-        // ф▐╟╤ф ╚эф фх╟э╔ ╟с╤╟╚╪ (у╦с #introduction) ц╟су┌╤°▌ ╟с═╟сэ
+        // ┘Ж┘В╪з╪▒┘Ж ╪и┘К┘Ж ┘Ж┘З╪з┘К╪й ╪з┘Д╪▒╪з╪и╪╖ (┘Е╪л┘Д #introduction) ┘И╪з┘Д┘Е╪╣╪▒┘С┘Б ╪з┘Д╪н╪з┘Д┘К
         if (a.href.endsWith(currentSectionId)) {
             a.classList.add('active');
         }
@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const codeBlock = document.getElementById('github-code-block');
     const fileLink = document.getElementById('github-file-link');
 
-    // 1. ╩═╧э╦ ╤╟╚╪ "┌╤╓ ╟сус▌ ┌сь GitHub"
+    // 1. ╪к╪н╪п┘К╪л ╪▒╪з╪и╪╖ "╪╣╪▒╪╢ ╪з┘Д┘Е┘Д┘Б ╪╣┘Д┘Й GitHub"
     if (fileLink) {
         fileLink.href = GITHUB_LINK_URL;
     }
 
-    // 2. ╠с╚ у═╩ць ╟с▀ц╧ уф GitHub
+    // 2. ╪м┘Д╪и ┘Е╪н╪к┘И┘Й ╪з┘Д┘Г┘И╪п ┘Е┘Ж GitHub
     if (codeBlock) {
         fetch(RAW_FILE_URL)
             .then(response => {
@@ -65,14 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error("Failed to fetch code from GitHub:", error);
-                codeBlock.textContent = `┌▌ц╟Ёб ▌╘с ╩═уэс ╟с▀ц╧. ╩├▀╧ уф ├ф ╟су╙╩ц╧┌ ┌╟у ц├ф ╟су╙╟╤ (${FILE_PATH}) ╒═э═.`;
+                codeBlock.textContent = `╪╣┘Б┘И╪з┘Л╪М ┘Б╪┤┘Д ╪к╪н┘Е┘К┘Д ╪з┘Д┘Г┘И╪п. ╪к╪г┘Г╪п ┘Е┘Ж ╪г┘Ж ╪з┘Д┘Е╪│╪к┘И╪п╪╣ ╪╣╪з┘Е ┘И╪г┘Ж ╪з┘Д┘Е╪│╪з╪▒ (${FILE_PATH}) ╪╡╪н┘К╪н.`;
             });
     }
 
-    // 3. ╩▌┌эс уэ╥╔ ╟с╩уээ╥ ╟сф╘╪
-    // ╩╘█эс ╟с╧╟с╔ ┌ф╧ ╩═уэс ╟с╒▌═╔
+    // 3. ╪к┘Б╪╣┘К┘Д ┘Е┘К╪▓╪й ╪з┘Д╪к┘Е┘К┘К╪▓ ╪з┘Д┘Ж╪┤╪╖
+    // ╪к╪┤╪║┘К┘Д ╪з┘Д╪п╪з┘Д╪й ╪╣┘Ж╪п ╪к╪н┘Е┘К┘Д ╪з┘Д╪╡┘Б╪н╪й
     highlightActiveLink();
-
-    // ╩╘█эс ╟с╧╟с╔ ▀су╟ ▐╟у ╟су╙╩╬╧у ╚╟с╩у╤э╤
+    
+    // ╪к╪┤╪║┘К┘Д ╪з┘Д╪п╪з┘Д╪й ┘Г┘Д┘Е╪з ┘В╪з┘Е ╪з┘Д┘Е╪│╪к╪о╪п┘Е ╪и╪з┘Д╪к┘Е╪▒┘К╪▒
     window.addEventListener('scroll', highlightActiveLink);
 });
