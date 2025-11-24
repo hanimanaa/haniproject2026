@@ -187,3 +187,36 @@ pre code {
     padding: 20px;
     margin-top: 0;
 }
+/* 🌟 تنسيق الجدول (أقسام المشروع) 🌟 */
+.project-details-table {
+    width: 100%;
+    border-collapse: collapse; /* لدمج حدود الخلايا */
+    margin-top: 20px;
+    font-size: 0.95em;
+    text-align: right;
+}
+
+/* تنسيق رأس الجدول */
+.project-details-table thead th {
+    background-color: #007bff; /* نفس لون الهيدر */
+    color: white;
+    padding: 12px 8px;
+    border: 1px solid #0056b3;
+}
+
+/* تنسيق جسم الجدول */
+.project-details-table tbody td {
+    padding: 10px 8px;
+    border: 1px solid #ccc;
+    text-align: right;
+}
+
+/* تلوين الصفوف الفردية (Alternate Row Coloring) للوضوح */
+.project-details-table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa; /* لون فاتح جداً */
+}
+
+/* تظليل الصفوف عند المرور عليها */
+.project-details-table tbody tr:hover {
+    background-color: #e2e6ea; /* لون رمادي فاتح عند التمرير */
+}
