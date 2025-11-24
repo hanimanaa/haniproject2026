@@ -5,7 +5,7 @@ body {
     padding: 0;
     background-color: #f4f7fa; /* خلفية زرقاء فاتحة جداً */
     color: #333;
-    direction: rtl;
+    direction: rtl; 
     text-align: right;
     scroll-behavior: smooth; /* لتحريك الصفحة بسلاسة عند النقر */
 }
@@ -16,138 +16,172 @@ body {
     color: white;
     padding: 25px;
     text-align: center;
-    border-bottom: 5px solid #0056b3; /* أزرق داكن كحد سفلي */
+    border-bottom: 5px solid #0056b3; 
 }
 
-    .header h1 {
-        margin: 0;
-        font-size: 2.5em;
-    }
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
 
 /* حاوية الصفحة الرئيسية */
 .container {
     display: flex;
     max-width: 1300px;
     margin: 20px auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
 /* الشريط الجانبي (Sidebar) */
 .sidebar {
     width: 250px;
-    min-width: 200px;
+    min-width: 200px; 
     padding: 20px;
-    background-color: #cfe2ff; /* أزرق فاتح جداً لخلفية الشريط */
+    background-color: #cfe2ff; 
     border-left: 3px solid #007bff;
-    position: sticky;
+    position: sticky; 
     top: 0;
-    align-self: flex-start;
-    height: fit-content; /* لضمان عدم امتداده لأسفل الصفحة بدون داعي */
+    align-self: flex-start; 
+    height: fit-content; 
 }
 
-    .sidebar h2 {
-        color: #004085;
-        border-bottom: 2px solid #007bff;
-        padding-bottom: 10px;
-        margin-top: 0;
-    }
+.sidebar h2 {
+    color: #004085; 
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
 
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-    }
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
 
-    .sidebar a {
-        display: block;
-        padding: 10px 10px;
-        text-decoration: none;
-        color: #1a1a1a;
-        transition: background-color 0.3s, color 0.3s;
-        border-radius: 4px;
-        font-weight: bold;
-    }
+.sidebar a {
+    display: block;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+    font-weight: bold;
+}
 
-        .sidebar a:hover {
-            background-color: #a0c4ff;
-            color: white;
-        }
+.sidebar a:hover {
+    background-color: #a0c4ff; 
+    color: white;
+}
 
-        /* تنسيق الرابط النشط عند التمرير (إضافة JavaScript ستضيف هذه الفئة) */
-        .sidebar a.active {
-            background-color: #007bff; /* أزرق أساسي */
-            color: white;
-            font-weight: bold;
-            border-right: 5px solid #004085;
-        }
+/* تنسيق الروابط النشطة */
+.sidebar a.active {
+    background-color: #007bff; 
+    color: white;
+    font-weight: bold;
+    border-right: 5px solid #004085; 
+}
+
+/* تنسيق خاص لروابط القائمة الفرعية */
+.sidebar .submenu-toggle {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #dbeaff; 
+    color: #004085;
+}
+
+/* القائمة الفرعية (Submenu) */
+.submenu {
+    list-style: none;
+    padding-left: 10px; 
+    margin: 0;
+    overflow: hidden; 
+    max-height: 0; /* لإخفائها */
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* حالة الفتح للقائمة الفرعية */
+.submenu.open {
+    max-height: 500px; 
+}
+
+/* تنسيق روابط القائمة الفرعية */
+.submenu a {
+    padding: 8px 20px;
+    font-weight: normal; 
+    font-size: 0.9em;
+}
+
+/* تنسيق لتمييز روابط القائمة الفرعية النشطة */
+.submenu a.active {
+    background-color: #a0c4ff; 
+    color: #1a1a1a;
+    border-right: 3px solid #004085; 
+}
 
 /* المحتوى الرئيسي (Main Content) */
 .content {
     flex-grow: 1;
     padding: 30px 50px;
-    background-color: white;
+    background-color: white; 
 }
 
-    .content section {
-        margin-bottom: 50px;
-        padding-bottom: 30px;
-        border-bottom: 1px dashed #ccc;
-    }
+.content section {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #ccc;
+}
 
-    .content h2 {
-        color: #007bff;
-        border-right: 5px solid #007bff;
-        padding-right: 15px;
-        margin-top: 0;
-        font-size: 2em;
-    }
-        .content h3 {
-        color: #ffae00;
-        border-right: 5px solid #ffae00;
-        padding-right: 15px;
-        margin-top: 0;
-        font-size: 1em;
-    }
+.content h2 {
+    color: #007bff; 
+    border-right: 5px solid #007bff; 
+    padding-right: 15px;
+    margin-top: 0;
+    font-size: 2em;
+}
 
 /* تنسيق عرض الكود (من GitHub) */
 pre {
-    background-color: #212529;
-    color: #e8e8e8;
+    /* 🌟 إصلاح المحاذاة: فرض الاتجاه من اليسار لليمين 🌟 */
+    direction: ltr; 
+    text-align: left; 
+    
+    background-color: #212529; 
+    color: #e8e8e8; 
     padding: 20px;
     border-radius: 8px;
     overflow-x: auto;
     font-family: 'Consolas', 'Courier New', monospace;
     font-size: 0.95em;
     line-height: 1.4;
-    border: 1px solid #007bff;
-    direction: ltr;
-    text-align: left;
+    border: 1px solid #007bff; 
 }
+
+/* 🌟 إصلاح المحاذاة: تأكيد الاتجاه والمحاذاة داخل الكود نفسه 🌟 */
 pre code {
-    /* تأكيد الاتجاه والمحاذاة داخل الكود نفسه */
     direction: ltr; 
     text-align: left;
 }
 
+
 /* تنسيق عرض الصور */
 .image-gallery {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     gap: 20px;
     margin-top: 20px;
 }
 
-    .image-gallery img {
-        max-width: 50%;
-        height: auto;
-        flex: 1 1 300px;
-        border: 5px solid #007bff;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
+.image-gallery img {
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 300px; 
+    border: 5px solid #007bff; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 
 /* التذييل (Footer) */
 .footer {
-    background-color: #004085;
+    background-color: #004085; 
     color: white;
     text-align: center;
     padding: 20px;

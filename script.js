@@ -6,9 +6,11 @@ const navLinks = document.querySelectorAll('.sidebar ul li a'); // جميع ال
 
 // دالة تحديد القسم النشط وتمييز الرابط المقابل له
 function highlightActiveLink() {
-    let currentSectionId = '';
-    const scrollY = window.scrollY; // موضع التمرير الحالي
+    // 🌟 إصلاح المشكلة: نجعل القسم الأول (introduction) هو القيمة الافتراضية
+    let currentSectionId = sections.length > 0 ? sections[0].getAttribute('id') : ''; 
+    const scrollY = window.scrollY; 
 
+    // تكرار على الأقسام لتحديد القسم الذي يظهر في منطقة العرض
     sections.forEach(section => {
         // نستخدم -100px لإضافة مسافة للأمان عند التمرير (Offset)
         if (scrollY >= section.offsetTop - 100) {
@@ -37,7 +39,7 @@ function highlightActiveLink() {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 🌟 الخطوة الجديدة: استخدام querySelectorAll للفئة 🌟
+    // استخدام querySelectorAll للفئة لمعالجة الملفات المتعددة
     const codeBlocks = document.querySelectorAll('.github-code-block');
     const fileLinks = document.querySelectorAll('.github-file-link'); // جميع روابط "عرض الملف على GitHub"
 
@@ -65,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const GITHUB_LINK_URL = `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/blob/main/${FILE_PATH}`;
 
         // تحديث رابط "عرض الملف على GitHub" المقابل
-        // نستخدم [index] لربط الكتلة برابطها الصحيح
         if (fileLinks[index]) {
             fileLinks[index].href = GITHUB_LINK_URL;
         }
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // وضع الكود الخام
                 codeBlock.textContent = codeContent;
                 
-                // 3. تطبيق التلوين (Prism.js)
+                // تطبيق التلوين (Prism.js)
                 if (window.Prism) {
                     // تحديث فئة اللغة لضمان التلوين الصحيح
                     codeBlock.className = `github-code-block language-${LANGUAGE}`; 
@@ -93,5 +94,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error("Failed to fetch code from GitHub:", error);
                 codeBlock.textContent = `عفواً، فشل تحميل الكود من الملف: ${FILE_PATH}.`;
             });
+    });
+
+    // =================================================================
+    // 3. منطق القائمة الفرعية (Submenu)
+    // =================================================================
+    const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+    submenuToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault(); // منع الذهاب إلى href="#"
+            
+            // تحديد القائمة الفرعية المجاورة
+            const submenu = this.nextElementSibling;
+
+            // إغلاق أي قائمة فرعية أخرى مفتوحة
+            document.querySelectorAll('.submenu.open').forEach(openMenu => {
+                // نغلق القوائم الأخرى ما لم تكن هي نفسها القائمة الحالية
+                if (openMenu !== submenu) {
+                    openMenu.classList.remove('open');
+                }
+            });
+
+            // فتح أو إغلاق القائمة الفرعية الحالية
+            submenu.classList.toggle('open');
+            this.classList.toggle('active');
+        });
     });
 });
