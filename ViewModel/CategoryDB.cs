@@ -20,6 +20,7 @@ namespace ViewModel
             category.catName =reader["catName"].ToString();
             return category;
         }
+        // Add new Category
         public int AddCategory(Category category)
         {
             string insertSql = string.Format("Insert into CategoryTbl "
@@ -42,7 +43,43 @@ namespace ViewModel
             string updateSql = string.Format("Update CategoryTbl SET "
                 + "catName='{0}'"  
                 + " where catNum={1}", category.catName, category.catNum);
-            return base.ChangeTable(updateSql, "MyDatabase.accdb");
+            return base.ChangeTable(updateSql, "Database2026.accdb");
+        }
+
+        // Select Categories
+        private CategoryList SelectCategories(string sqlStr)
+        {
+            try
+            {
+                cmd = GenerateOleDBCommand(sqlStr, "Database2026.accdb");
+                conObj.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    category = new Category();
+                    categoriesList.Add(CreateModel(category));
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+                if (this.conObj.State == System.Data.ConnectionState.Open)
+                    this.conObj.Close();
+            }
+            return categoriesList;
+        }
+
+        // Select All Categories
+        public CategoryList SelectAllCategories()
+        {
+            string sqlStr = "Select * From CategoryTbl";
+            CategoryList list = SelectCategories(sqlStr);
+            return list;
         }
 
 

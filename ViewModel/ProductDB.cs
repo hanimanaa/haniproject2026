@@ -10,7 +10,7 @@ namespace ViewModel
     public class ProductDB : DBFunctuins
     {
         Product product = null;
-        ProductList ProductsList = new ProductList();
+        ProductList productsList = new ProductList();
 
         public ProductDB() : base() { }
 
@@ -31,7 +31,8 @@ namespace ViewModel
 
             return product;
         }
-
+        
+        // Add new Product
         public int AddProduct(Product product)
         {
             string insertSql = string.Format("Insert into ProductTbl "
@@ -41,8 +42,16 @@ namespace ViewModel
                 product.description,product.category.catNum,product.expiredDate,product.vegan);
 
             return base.ChangeTable(insertSql, "Database2026.accdb");
-
         }
+
+        // Delete Product By ProductNum
+        public int DeleteProductByProductNum(int productNum)
+        {
+            string delSql = string.Format("Delete from ProductTbl "
+                + "where productNum= {0}", productNum) ;
+            return base.ChangeTable(delSql, "Database2026.accdb");
+        }
+
         // Update product
         public int UpdateProduct(Product product)
         {
@@ -55,14 +64,42 @@ namespace ViewModel
                 product.vegan, product.productNum);
 
             return base.ChangeTable(updateSql, "Database2026.accdb");
+        }    
+
+        // Select Products
+        private ProductList SelectProducts(string sqlStr)
+        {
+            try
+            {
+                cmd = GenerateOleDBCommand(sqlStr, "Database2026.accdb");
+                conObj.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    product = new Product();
+                    productsList.Add(CreateModel(product));
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+                if (this.conObj.State == System.Data.ConnectionState.Open)
+                    this.conObj.Close();
+            }
+            return productsList;
         }
 
-        // Delete Product By ProductNum
-        public int DeleteProductByProductNum(int productNum)
+        // Select All Products
+        public ProductList SelectAllProducts()
         {
-            string delSql = string.Format("Delete from ProductTbl "
-                + "where productNum= {0}", productNum) ;
-            return base.ChangeTable(delSql, "Database2026.accdb");
+            string sqlStr = "Select * From ProductTbl";
+            ProductList list = SelectProducts(sqlStr);
+            return productsList;
         }
     }
 }
