@@ -9,20 +9,78 @@ body {
     text-align: right;
     scroll-behavior: smooth; /* لتحريك الصفحة بسلاسة عند النقر */
 }
-
-/* الترويسة (Header) باللون الأزرق */
+/* ------------------------------------------- */
+/* 🌟 تنسيقات الترويسة (Header) العصرية 🌟 */
+/* ------------------------------------------- */
 .header {
-    background-color: #007bff; /* أزرق أساسي */
+    /* تم تغيير الخلفية لتصبح تدرج لوني أزرق (Gradient) */
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); 
     color: white;
-    padding: 25px;
+    padding: 0; /* إزالة الـ Padding الأساسي لنحتويه في محتوى منفصل */
     text-align: center;
-    border-bottom: 5px solid #0056b3; 
+    border-bottom: none; /* إزالة الحد السفلي القديم */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* إضافة ظل جذاب */
+}
+
+/* تنسيق المحتوى الداخلي للـ Header */
+.header-content {
+    padding: 30px 20px 20px; /* مساحة علوية وسفلية للمحتوى */
 }
 
 .header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2.8em; /* حجم أكبر */
+    letter-spacing: 1.5px; /* تباعد بين الحروف */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* ظل للنص */
 }
+
+.header h2 {
+    margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #cfe2ff; /* لون أزرق فاتح مكمل */
+}
+
+.header p {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+/* ------------------------------------------- */
+/* 🌟 تنسيقات شريط التنقل العلوي (Top Navbar) 🌟 */
+/* ------------------------------------------- */
+.top-navbar {
+    background-color: #004085; /* شريط داكن متباين */
+    padding: 10px 0;
+    border-top: 1px solid #0056b3;
+}
+
+.top-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* لعرض الروابط أفقياً */
+    justify-content: center; /* توسيط الروابط */
+}
+
+.top-navbar li {
+    margin: 0 15px;
+}
+
+.top-navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.top-navbar a:hover {
+    background-color: #007bff; /* تظليل باللون الأزرق الفاتح عند المرور */
+    transform: translateY(-2px); /* تأثير رفع بسيط */
+}
+
 
 /* حاوية الصفحة الرئيسية */
 .container {
