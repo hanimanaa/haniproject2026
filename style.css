@@ -3,93 +3,91 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7fa; /* خلفية زرقاء فاتحة جداً */
+    background-color: #f4f7fa;
     color: #333;
     direction: rtl; 
     text-align: right;
-    scroll-behavior: smooth; /* لتحريك الصفحة بسلاسة عند النقر */
+    scroll-behavior: smooth;
 }
+
 /* ------------------------------------------- */
-/* 🌟 تنسيقات الترويسة (Header) العصرية 🌟 */
+/* 🌟 تنسيقات الترويسة (Header) الجديدة 🌟 */
 /* ------------------------------------------- */
 .header {
-    /* تم تغيير الخلفية لتصبح تدرج لوني أزرق (Gradient) */
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); 
-    color: white;
-    padding: 0; /* إزالة الـ Padding الأساسي لنحتويه في محتوى منفصل */
+    background-color: white; 
+    color: #333;
+    padding: 0;
     text-align: center;
-    border-bottom: none; /* إزالة الحد السفلي القديم */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* إضافة ظل جذاب */
+    border-bottom: none; 
+    /* 🌟 إضافة ظل للأسفل 🌟 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* تنسيق المحتوى الداخلي للـ Header */
-.header-content {
-    padding: 30px 20px 20px; /* مساحة علوية وسفلية للمحتوى */
+/* شريط العنوان ومعلومات الاتصال */
+.top-header-bar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 30px; 
+    background-color: #007bff; /* خلفية الشريط العلوي بلون أزرق داكن */
+    color: white;
 }
 
-.header h1 {
+.project-title h1 {
+    font-size: 1.5em; 
     margin: 0;
-    font-size: 2.8em; /* حجم أكبر */
-    letter-spacing: 1.5px; /* تباعد بين الحروف */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* ظل للنص */
+    color: white;
 }
 
-.header h2 {
-    margin-top: 5px;
-    font-size: 1.2em;
-    font-weight: 300;
-    color: #cfe2ff; /* لون أزرق فاتح مكمل */
+/* تنسيق معلومات الاتصال */
+.contact-info span {
+    margin-right: 15px; 
+    font-size: 0.9em;
+    color: #cfe2ff;
 }
 
-.header p {
-    margin-top: 15px;
-    font-size: 1.1em;
-}
-
-/* ------------------------------------------- */
-/* 🌟 تنسيقات شريط التنقل العلوي (Top Navbar) 🌟 */
-/* ------------------------------------------- */
+/* 🌟 تنسيق شريط التنقل العلوي (Top Navbar) 🌟 */
 .top-navbar {
-    background-color: #004085; /* شريط داكن متباين */
-    padding: 10px 0;
-    border-top: 1px solid #0056b3;
+    background-color: white; 
+    /* 🌟 تكبير ارتفاع الـ Navbar باستخدام الـ padding 🌟 */
+    padding: 15px 0; 
+    border-top: 1px solid #eee;
+    text-align: center;
 }
 
 .top-navbar ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* لعرض الروابط أفقياً */
-    justify-content: center; /* توسيط الروابط */
+    display: flex; 
+    justify-content: center; 
 }
 
 .top-navbar li {
-    margin: 0 15px;
+    margin: 0 25px;
 }
 
 .top-navbar a {
-    color: #fff;
+    color: #1a1a1a; /* 🌟 لون الخط أسود 🌟 */
     text-decoration: none;
     font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    
+    /* 🌟 إضافة تأثير ظل للروابط 🌟 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); 
 }
 
 .top-navbar a:hover {
-    background-color: #007bff; /* تظليل باللون الأزرق الفاتح عند المرور */
-    transform: translateY(-2px); /* تأثير رفع بسيط */
+    background-color: #e9f5ff; /* تظليل خفيف عند المرور */
+    color: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); /* ظل جذاب عند المرور */
 }
 
-
-/* حاوية الصفحة الرئيسية */
-.container {
-    display: flex;
-    max-width: 1300px;
-    margin: 20px auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-}
-
+/* ------------------------------------------- */
+/* ... (بقية تنسيقات الشريط الجانبي والمحتوى تبقى كما هي) ... */
+/* ------------------------------------------- */
 /* الشريط الجانبي (Sidebar) */
 .sidebar {
     width: 250px;
@@ -198,7 +196,7 @@ body {
 
 /* تنسيق عرض الكود (من GitHub) */
 pre {
-    /* 🌟 إصلاح المحاذاة: فرض الاتجاه من اليسار لليمين 🌟 */
+    /* إصلاح المحاذاة: فرض الاتجاه من اليسار لليمين */
     direction: ltr; 
     text-align: left; 
     
@@ -213,7 +211,7 @@ pre {
     border: 1px solid #007bff; 
 }
 
-/* 🌟 إصلاح المحاذاة: تأكيد الاتجاه والمحاذاة داخل الكود نفسه 🌟 */
+/* إصلاح المحاذاة: تأكيد الاتجاه والمحاذاة داخل الكود نفسه */
 pre code {
     direction: ltr; 
     text-align: left;
@@ -245,7 +243,7 @@ pre code {
     padding: 20px;
     margin-top: 0;
 }
-/* 🌟 تنسيق الجدول (أقسام المشروع) 🌟 */
+/* تنسيق الجدول (أقسام المشروع) */
 .project-details-table {
     width: 100%;
     border-collapse: collapse; /* لدمج حدود الخلايا */
