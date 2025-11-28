@@ -11,54 +11,52 @@ body {
 }
 
 /* ------------------------------------------- */
-/* 🌟 تنسيقات الترويسة (Header) الجديدة 🌟 */
+/* 🌟 تنسيقات الترويسة (Header) 🌟 */
 /* ------------------------------------------- */
 .header {
-    /* تغيير الخلفية إلى أبيض نقي */
     background-color: white; 
     color: #333;
     padding: 0;
     text-align: center;
     border-bottom: none; 
-    /* 🌟 إضافة ظل للأسفل 🌟 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
-    position: sticky; /* لجعل الـ Header يبقى ثابتاً في الأعلى */
+    position: sticky; 
     top: 0;
     z-index: 1000;
 }
 
-/* شريط العنوان ومعلومات الاتصال */
+/* 🌟 شريط العنوان ومعلومات الاتصال (Top Header Bar) 🌟 */
 .top-header-bar {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 10%; /* استخدام نسبة مئوية لزيادة المساحة الجانبية */
+    /* 🌟 زيادة الـ Padding العمودي لتكبير الارتفاع 🌟 */
+    padding: 20px 15%; /* 🌟 زيادة الـ Padding الأفقي لتكبير المساحة الفارغة 🌟 */
     background-color: #007bff; 
     color: white;
 }
 
 .project-title h1 {
-    font-size: 1.2em; 
+    font-size: 1.8em; /* زيادة حجم الخط */
     margin: 0;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .project-title p {
-    font-size: 0.8em;
-    margin: 3px 0 0 0;
+    font-size: 1em;
+    margin: 5px 0 0 0;
     color: #cfe2ff;
 }
 
-/* تنسيق معلومات الاتصال (جهة اليسار في هذا التصميم) */
+/* تنسيق معلومات الاتصال (جهة اليسار) */
 .contact-info {
-    font-size: 0.9em;
-    /* محاذاة لليمين */
+    font-size: 1em;
     direction: ltr;
 }
 
 .contact-info span {
-    margin-left: 15px; 
+    margin-left: 20px; 
     color: #cfe2ff;
     white-space: nowrap;
 }
@@ -67,8 +65,7 @@ body {
 /* 🌟 شريط التنقل الرئيسي (Top Navbar) 🌟 */
 .top-navbar {
     background-color: white; 
-    /* 🌟 تكبير ارتفاع الـ Navbar 🌟 */
-    padding: 20px 10%; /* زيادة الـ padding لزيادة الارتفاع والمسافة الجانبية */
+    padding: 15px 15%; /* 🌟 استخدام نفس المساحة الفارغة الجانبية (15%) 🌟 */
     border-top: 1px solid #eee;
     text-align: right;
 }
@@ -83,20 +80,18 @@ body {
 }
 
 .top-navbar ul.nav-links > li {
-    margin: 0 15px;
+    margin: 0 18px;
     position: relative;
 }
 
 .top-navbar a {
     text-decoration: none;
-    color: #1a1a1a; /* 🌟 لون الخط أسود 🌟 */
+    color: #1a1a1a; 
     font-weight: 600;
     padding: 8px 12px;
     border-radius: 6px;
     transition: all 0.3s;
     display: block;
-    
-    /* 🌟 إضافة ظل للروابط 🌟 */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
 }
 
@@ -108,7 +103,7 @@ body {
 }
 
 /* ------------------------------------------- */
-/* 🌟 تنسيقات القائمة المنسدلة (Dropdown) 🌟 */
+/* تنسيقات القائمة المنسدلة (Dropdown) */
 /* ------------------------------------------- */
 .has-dropdown {
     position: relative;
@@ -156,36 +151,16 @@ body {
 }
 
 /* ------------------------------------------- */
-/* 🌟 تعديلات تنسيق المحتوى لزيادة المساحة الجانبية 🌟 */
+/* 🌟 تنسيق المحتوى لزيادة المساحة الجانبية 🌟 */
 /* ------------------------------------------- */
-
-/* حذف تنسيق .container لأنه تم حذف الـ sidebar */
-.container {
-    display: block; 
-    max-width: 100%; 
-    margin: 0;
-    box-shadow: none; 
-}
-
-/* تنسيق المحتوى الرئيسي لزيادة المساحة الجانبية */
 .content {
-    /* تم إلغاء flex-grow: 1 لأنه لم يعد ضمن flex container */
-    /* 🌟 زيادة الـ padding الجانبي 🌟 */
-    padding: 30px 10%; 
+    /* 🌟 زيادة الـ padding الجانبي ليتطابق مع الـ Header (15%) 🌟 */
+    padding: 50px 15%; 
     background-color: white; 
     max-width: 100%;
 }
 
-/* ------------------------------------------- */
-/* 🛑 يجب حذف جميع تنسيقات الشريط الجانبي القديمة (Sidebar) 🛑 */
-/* ------------------------------------------- */
-
-/* تم حذف تنسيقات: .sidebar, .sidebar h2, .sidebar ul, .sidebar a, .sidebar a:hover, 
-.sidebar a.active, .sidebar .submenu-toggle, .submenu, .submenu.open, .submenu a, .submenu a.active */
-
-
-/* باقي تنسيقات المحتوى والجدول تبقى كما هي: */
-
+/* ... بقية التنسيقات (الأقسام، الأكواد، الجداول) كما هي ... */
 .content section {
     margin-bottom: 50px;
     padding-bottom: 30px;
