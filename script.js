@@ -2,15 +2,17 @@
 //                 منطق تمييز الرابط النشط
 // =================================================================
 const sections = document.querySelectorAll('.content section'); // جميع الأقسام
-const navLinks = document.querySelectorAll('.sidebar ul li a'); // جميع الروابط
+// 🌟 تحديث: استهداف روابط الـ top-navbar بدلاً من الشريط الجانبي 🌟
+const navLinks = document.querySelectorAll('.top-navbar ul.nav-links a'); // جميع الروابط في القائمة العلوية
+
 
 // دالة تحديد القسم النشط وتمييز الرابط المقابل له
 function highlightActiveLink() {
-    // 🌟 إصلاح المشكلة: نجعل القسم الأول (introduction) هو القيمة الافتراضية
+    // نجعل القسم الأول (introduction) هو القيمة الافتراضية
     let currentSectionId = sections.length > 0 ? sections[0].getAttribute('id') : ''; 
     const scrollY = window.scrollY; 
 
-    // تكرار على الأقسام لتحديد القسم الذي يظهر في منطقة العرض
+    // تحديد القسم الذي يظهر في منطقة العرض
     sections.forEach(section => {
         // نستخدم -100px لإضافة مسافة للأمان عند التمرير (Offset)
         if (scrollY >= section.offsetTop - 100) {
@@ -22,12 +24,23 @@ function highlightActiveLink() {
     navLinks.forEach(a => {
         a.classList.remove('active');
     });
+    
+    // إغلاق جميع القوائم المنسدلة بشكل افتراضي لمنع بقائها مفتوحة عند التمرير
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+         menu.classList.remove('open');
+    });
 
     // إضافة الفئة النشطة للرابط المطابق لـ currentSectionId
     navLinks.forEach(a => {
         // نقارن بين نهاية الرابط (مثل #introduction) والمعرّف الحالي
-        if (a.href.endsWith(currentSectionId)) {
+        if (a.href.endsWith(currentSectionId) && currentSectionId !== '') {
             a.classList.add('active');
+            
+            // 🌟 فتح القائمة المنسدلة للقسم النشط (إذا كان الرابط داخل قائمة منسدلة) 🌟
+            const parentDropdownMenu = a.closest('.dropdown-menu');
+            if (parentDropdownMenu) {
+                 parentDropdownMenu.classList.add('open');
+            }
         }
     });
 }
@@ -39,9 +52,8 @@ function highlightActiveLink() {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // استخدام querySelectorAll للفئة لمعالجة الملفات المتعددة
     const codeBlocks = document.querySelectorAll('.github-code-block');
-    const fileLinks = document.querySelectorAll('.github-file-link'); // جميع روابط "عرض الملف على GitHub"
+    const fileLinks = document.querySelectorAll('.github-file-link'); 
 
     // 1. تفعيل ميزة التمييز النشط
     highlightActiveLink();
@@ -51,18 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. معالجة كل كتلة كود (ملف) بشكل مستقل
     codeBlocks.forEach((codeBlock, index) => {
         
-        // قراءة البيانات من سمات HTML الخاصة بهذه الكتلة
-        const GITHUB_USERNAME = codeBlock.dataset.githubUser || "DefaultUser";
-        const REPO_NAME = codeBlock.dataset.repoName || "DefaultRepo";
+        const GITHUB_USERNAME = codeBlock.dataset.githubUser || "hanimanaa";
+        const REPO_NAME = codeBlock.dataset.repoName || "haniproject2026";
         const FILE_PATH = codeBlock.dataset.filePath;
-        const LANGUAGE = codeBlock.dataset.language || "clike"; // لغة التلوين
+        const LANGUAGE = codeBlock.dataset.language || "csharp"; 
 
         if (!FILE_PATH) {
             codeBlock.textContent = "خطأ: لم يتم تحديد مسار الملف (data-file-path).";
             return;
         }
         
-        // بناء رابط الملف الخام (Raw URL) ورابط GitHub
         const RAW_FILE_URL = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}`;
         const GITHUB_LINK_URL = `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/blob/main/${FILE_PATH}`;
 
@@ -80,12 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.text();
             })
             .then(codeContent => {
-                // وضع الكود الخام
                 codeBlock.textContent = codeContent;
                 
-                // تطبيق التلوين (Prism.js)
                 if (window.Prism) {
-                    // تحديث فئة اللغة لضمان التلوين الصحيح
                     codeBlock.className = `github-code-block language-${LANGUAGE}`; 
                     Prism.highlightElement(codeBlock);
                 }
@@ -97,27 +104,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =================================================================
-    // 3. منطق القائمة الفرعية (Submenu)
+    // 3. منطق القائمة المنسدلة (Dropdown)
     // =================================================================
-    const submenuToggles = document.querySelectorAll('.submenu-toggle');
+    // 🌟 تحديث: استهداف الـ dropdown-toggle 🌟
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
-    submenuToggles.forEach(toggle => {
+    dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', function(e) {
-            e.preventDefault(); // منع الذهاب إلى href="#"
+            e.preventDefault(); 
             
-            // تحديد القائمة الفرعية المجاورة
-            const submenu = this.nextElementSibling;
+            // تحديد القائمة المنسدلة المجاورة
+            const dropdownMenu = this.nextElementSibling;
 
-            // إغلاق أي قائمة فرعية أخرى مفتوحة
-            document.querySelectorAll('.submenu.open').forEach(openMenu => {
+            // إغلاق أي قائمة منسدلة أخرى مفتوحة
+            document.querySelectorAll('.dropdown-menu.open').forEach(openMenu => {
                 // نغلق القوائم الأخرى ما لم تكن هي نفسها القائمة الحالية
-                if (openMenu !== submenu) {
+                if (openMenu !== dropdownMenu) {
                     openMenu.classList.remove('open');
                 }
             });
 
-            // فتح أو إغلاق القائمة الفرعية الحالية
-            submenu.classList.toggle('open');
+            // فتح أو إغلاق القائمة المنسدلة الحالية
+            dropdownMenu.classList.toggle('open');
             this.classList.toggle('active');
         });
     });

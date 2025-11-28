@@ -7,20 +7,24 @@ body {
     color: #333;
     direction: rtl; 
     text-align: right;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
 }
 
 /* ------------------------------------------- */
 /* 🌟 تنسيقات الترويسة (Header) الجديدة 🌟 */
 /* ------------------------------------------- */
 .header {
+    /* تغيير الخلفية إلى أبيض نقي */
     background-color: white; 
     color: #333;
     padding: 0;
     text-align: center;
     border-bottom: none; 
     /* 🌟 إضافة ظل للأسفل 🌟 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+    position: sticky; /* لجعل الـ Header يبقى ثابتاً في الأعلى */
+    top: 0;
+    z-index: 1000;
 }
 
 /* شريط العنوان ومعلومات الاتصال */
@@ -28,157 +32,159 @@ body {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 15px 30px; 
-    background-color: #007bff; /* خلفية الشريط العلوي بلون أزرق داكن */
+    padding: 10px 10%; /* استخدام نسبة مئوية لزيادة المساحة الجانبية */
+    background-color: #007bff; 
     color: white;
 }
 
 .project-title h1 {
-    font-size: 1.5em; 
+    font-size: 1.2em; 
     margin: 0;
     color: white;
+    font-weight: 500;
 }
 
-/* تنسيق معلومات الاتصال */
-.contact-info span {
-    margin-right: 15px; 
-    font-size: 0.9em;
+.project-title p {
+    font-size: 0.8em;
+    margin: 3px 0 0 0;
     color: #cfe2ff;
 }
 
-/* 🌟 تنسيق شريط التنقل العلوي (Top Navbar) 🌟 */
-.top-navbar {
-    background-color: white; 
-    /* 🌟 تكبير ارتفاع الـ Navbar باستخدام الـ padding 🌟 */
-    padding: 15px 0; 
-    border-top: 1px solid #eee;
-    text-align: center;
+/* تنسيق معلومات الاتصال (جهة اليسار في هذا التصميم) */
+.contact-info {
+    font-size: 0.9em;
+    /* محاذاة لليمين */
+    direction: ltr;
 }
 
-.top-navbar ul {
+.contact-info span {
+    margin-left: 15px; 
+    color: #cfe2ff;
+    white-space: nowrap;
+}
+
+
+/* 🌟 شريط التنقل الرئيسي (Top Navbar) 🌟 */
+.top-navbar {
+    background-color: white; 
+    /* 🌟 تكبير ارتفاع الـ Navbar 🌟 */
+    padding: 20px 10%; /* زيادة الـ padding لزيادة الارتفاع والمسافة الجانبية */
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.top-navbar ul.nav-links {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex; 
-    justify-content: center; 
+    justify-content: flex-start; 
+    position: relative; 
 }
 
-.top-navbar li {
-    margin: 0 25px;
+.top-navbar ul.nav-links > li {
+    margin: 0 15px;
+    position: relative;
 }
 
 .top-navbar a {
-    color: #1a1a1a; /* 🌟 لون الخط أسود 🌟 */
     text-decoration: none;
+    color: #1a1a1a; /* 🌟 لون الخط أسود 🌟 */
     font-weight: 600;
     padding: 8px 12px;
     border-radius: 6px;
     transition: all 0.3s;
-    
-    /* 🌟 إضافة تأثير ظل للروابط 🌟 */
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); 
-}
-
-.top-navbar a:hover {
-    background-color: #e9f5ff; /* تظليل خفيف عند المرور */
-    color: #007bff;
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); /* ظل جذاب عند المرور */
-}
-
-/* ------------------------------------------- */
-/* ... (بقية تنسيقات الشريط الجانبي والمحتوى تبقى كما هي) ... */
-/* ------------------------------------------- */
-/* الشريط الجانبي (Sidebar) */
-.sidebar {
-    width: 250px;
-    min-width: 200px; 
-    padding: 20px;
-    background-color: #cfe2ff; 
-    border-left: 3px solid #007bff;
-    position: sticky; 
-    top: 0;
-    align-self: flex-start; 
-    height: fit-content; 
-}
-
-.sidebar h2 {
-    color: #004085; 
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-    margin-top: 0;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar a {
     display: block;
-    padding: 10px 10px;
-    text-decoration: none;
-    color: #1a1a1a;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 4px;
-    font-weight: bold;
+    
+    /* 🌟 إضافة ظل للروابط 🌟 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
 }
 
-.sidebar a:hover {
-    background-color: #a0c4ff; 
-    color: white;
+.top-navbar a:hover,
+.top-navbar a.active {
+    background-color: #e9f5ff; 
+    color: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); 
 }
 
-/* تنسيق الروابط النشطة */
-.sidebar a.active {
-    background-color: #007bff; 
-    color: white;
-    font-weight: bold;
-    border-right: 5px solid #004085; 
+/* ------------------------------------------- */
+/* 🌟 تنسيقات القائمة المنسدلة (Dropdown) 🌟 */
+/* ------------------------------------------- */
+.has-dropdown {
+    position: relative;
 }
 
-/* تنسيق خاص لروابط القائمة الفرعية */
-.sidebar .submenu-toggle {
+.dropdown-toggle {
     cursor: pointer;
-    font-weight: bold;
-    background-color: #dbeaff; 
-    color: #004085;
 }
 
-/* القائمة الفرعية (Submenu) */
-.submenu {
+.dropdown-menu {
     list-style: none;
-    padding-left: 10px; 
+    padding: 10px 0;
     margin: 0;
-    overflow: hidden; 
-    max-height: 0; /* لإخفائها */
-    transition: max-height 0.3s ease-in-out;
+    position: absolute;
+    right: 0; 
+    top: 100%; 
+    z-index: 1000;
+    min-width: 200px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0; 
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 }
 
-/* حالة الفتح للقائمة الفرعية */
-.submenu.open {
-    max-height: 500px; 
+.dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-/* تنسيق روابط القائمة الفرعية */
-.submenu a {
-    padding: 8px 20px;
-    font-weight: normal; 
-    font-size: 0.9em;
+.dropdown-menu a {
+    padding: 10px 15px;
+    font-weight: normal;
+    font-size: 0.95em;
+    white-space: nowrap; 
+    box-shadow: none; 
 }
 
-/* تنسيق لتمييز روابط القائمة الفرعية النشطة */
-.submenu a.active {
-    background-color: #a0c4ff; 
-    color: #1a1a1a;
-    border-right: 3px solid #004085; 
+.dropdown-menu a:hover {
+    background-color: #f0f8ff; 
 }
 
-/* المحتوى الرئيسي (Main Content) */
+/* ------------------------------------------- */
+/* 🌟 تعديلات تنسيق المحتوى لزيادة المساحة الجانبية 🌟 */
+/* ------------------------------------------- */
+
+/* حذف تنسيق .container لأنه تم حذف الـ sidebar */
+.container {
+    display: block; 
+    max-width: 100%; 
+    margin: 0;
+    box-shadow: none; 
+}
+
+/* تنسيق المحتوى الرئيسي لزيادة المساحة الجانبية */
 .content {
-    flex-grow: 1;
-    padding: 30px 50px;
+    /* تم إلغاء flex-grow: 1 لأنه لم يعد ضمن flex container */
+    /* 🌟 زيادة الـ padding الجانبي 🌟 */
+    padding: 30px 10%; 
     background-color: white; 
+    max-width: 100%;
 }
+
+/* ------------------------------------------- */
+/* 🛑 يجب حذف جميع تنسيقات الشريط الجانبي القديمة (Sidebar) 🛑 */
+/* ------------------------------------------- */
+
+/* تم حذف تنسيقات: .sidebar, .sidebar h2, .sidebar ul, .sidebar a, .sidebar a:hover, 
+.sidebar a.active, .sidebar .submenu-toggle, .submenu, .submenu.open, .submenu a, .submenu a.active */
+
+
+/* باقي تنسيقات المحتوى والجدول تبقى كما هي: */
 
 .content section {
     margin-bottom: 50px;
@@ -196,10 +202,8 @@ body {
 
 /* تنسيق عرض الكود (من GitHub) */
 pre {
-    /* إصلاح المحاذاة: فرض الاتجاه من اليسار لليمين */
     direction: ltr; 
     text-align: left; 
-    
     background-color: #212529; 
     color: #e8e8e8; 
     padding: 20px;
@@ -210,14 +214,10 @@ pre {
     line-height: 1.4;
     border: 1px solid #007bff; 
 }
-
-/* إصلاح المحاذاة: تأكيد الاتجاه والمحاذاة داخل الكود نفسه */
 pre code {
     direction: ltr; 
     text-align: left;
 }
-
-
 /* تنسيق عرض الصور */
 .image-gallery {
     display: flex;
@@ -246,7 +246,7 @@ pre code {
 /* تنسيق الجدول (أقسام المشروع) */
 .project-details-table {
     width: 100%;
-    border-collapse: collapse; /* لدمج حدود الخلايا */
+    border-collapse: collapse;
     margin-top: 20px;
     font-size: 0.95em;
     text-align: right;
@@ -254,7 +254,7 @@ pre code {
 
 /* تنسيق رأس الجدول */
 .project-details-table thead th {
-    background-color: #007bff; /* نفس لون الهيدر */
+    background-color: #007bff;
     color: white;
     padding: 12px 8px;
     border: 1px solid #0056b3;
@@ -269,10 +269,10 @@ pre code {
 
 /* تلوين الصفوف الفردية (Alternate Row Coloring) للوضوح */
 .project-details-table tbody tr:nth-child(odd) {
-    background-color: #f8f9fa; /* لون فاتح جداً */
+    background-color: #f8f9fa;
 }
 
 /* تظليل الصفوف عند المرور عليها */
 .project-details-table tbody tr:hover {
-    background-color: #e2e6ea; /* لون رمادي فاتح عند التمرير */
+    background-color: #e2e6ea;
 }
