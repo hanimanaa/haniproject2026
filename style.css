@@ -285,3 +285,9 @@ pre code {
 .project-details-table tbody tr:hover {
     background-color: #e2e6ea;
 }
+/* 🌟 جديد: فتح القائمة المنسدلة عند التمرير فوق الرابط الأب (لتحسين تجربة المستخدم) 🌟 */
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

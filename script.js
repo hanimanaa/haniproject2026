@@ -26,6 +26,7 @@ function highlightActiveLink() {
     });
     
     // إغلاق جميع القوائم المنسدلة بشكل افتراضي لمنع بقائها مفتوحة عند التمرير
+    // ⚠️ الإبقاء على هذا الجزء مهم لضمان عدم بقاء القائمة مفتوحة بشكل خاطئ ⚠️
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
          menu.classList.remove('open');
     });
@@ -36,11 +37,11 @@ function highlightActiveLink() {
         if (a.href.endsWith(currentSectionId) && currentSectionId !== '') {
             a.classList.add('active');
             
-            // 🌟 فتح القائمة المنسدلة للقسم النشط (إذا كان الرابط داخل قائمة منسدلة) 🌟
-            const parentDropdownMenu = a.closest('.dropdown-menu');
-            if (parentDropdownMenu) {
-                 parentDropdownMenu.classList.add('open');
-            }
+            // ❌ تم حذف هذا الجزء: لا تفتح القائمة المنسدلة عند التمرير ❌
+            // const parentDropdownMenu = a.closest('.dropdown-menu');
+            // if (parentDropdownMenu) {
+            //      parentDropdownMenu.classList.add('open');
+            // }
         }
     });
 }
