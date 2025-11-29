@@ -173,12 +173,7 @@ body {
     padding: 50px 15%; 
     background-color: white; 
     max-width: 100%;
-    display: flex;
-    /* توجيه المحتوى بشكل عمودي (ليصبح التوسيط الأفقي منطقياً) */
-    flex-direction: column; 
-    /* توسيط المحتوى أفقياً (على طول المحور الرئيسي) */
-    align-items: center; 
-    /* لتوسيط النص والصور داخله أيضاً */
+  
    
   
 
