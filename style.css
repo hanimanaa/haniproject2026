@@ -198,11 +198,12 @@ body {
 }
 .content h1 {
     color: #004085; 
-    border-right: 5px solid #004085; 
+    border: 5px solid #004085; 
+    border-radius: 50%;
     padding-right: 15px;
     margin-top: 0;
     font-size: 2em;
-    justify-content: center;
+   text-align: center;
 }
 
 /* تنسيق عرض الكود (من GitHub) */
