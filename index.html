@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مشروع التخرج - برمجة الويب</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
@@ -18,51 +19,22 @@
                 <p>مقدم من: هاني مناع</p>
             </div>
             <div class="contact-info">
-                <span class="email-info">📧 email@example.com</span>
-                <span class="phone-info">📞 +972 5X-XXX-XXXX</span>
+                <span class="email-info">📧 hanimanaa@gmail.com</span>
+                <span class="phone-info">📞    052-3856-567</span>
             </div>
         </div>
         
         <nav class="top-navbar">
-            <ul class="nav-links">
-                <li><a href="#introduction">المقدمة</a></li>
-                <li><a href="#student">قائمة الطلاب</a></li>
-                <li><a href="#problem">اقسام المشروع</a></li>
-                <li><a href="#architecture">هيكلية النظام</a></li>
-                
-                <li class="has-dropdown">
-                     <a href="#" class="dropdown-toggle">Host 🔽</a>            
-                     <ul class="dropdown-menu">
-                            <li><a href="#host-file1">HostFile1.cs</a></li>
-                            <li><a href="#host-file2">HostFile2.cs</a></li>
-                     </ul>
-                </li>
-
-                <li class="has-dropdown">
-                    <a href="#code-Model" class="dropdown-toggle">Model 🔽</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#model-product">Product.cs</a></li>
-                        <li><a href="#model-category">Category.cs</a></li>
-                        <li><a href="#model-productlist">ProductList.cs</a></li>
-                        <li><a href="#model-categorylist">CategoryList.cs</a></li>
-                    </ul>
-                </li>
-                
-                <li class="has-dropdown">
-                    <a href="#code-ViewModel" class="dropdown-toggle">ViewModel 🔽</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#viewmodel-productdb">ProductDB.cs</a></li>
-                        <li><a href="#viewmodel-categorydb">CategoryDB.cs</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#database">DataBase</a></li>
-                <li><a href="#results">النتائج والصور</a></li>
-                <li><a href="#conclusion">الخلاصة</a></li>
+            <ul class="nav-links">          
+                <li><a href="index.html"> مبنى المشروع<br><i class="fa-solid fa-code-branch"></i></a></li>
+                <li><a href="Host.html">الخادم - Host<br><i class="fa-solid fas fa-database"></i></a></li>
+                <li><a href="User.html">المستخدم - User<br><i class="fa-solid fa-users-gear"></i></a></li>
+                <li><a href="Admin.html">المدير - Admin<br><i class="fa-solid fa-user-tie"></i></a></li>     
+                <li><a href="#database">كتاب المشروع<br><i class="fa-solid fa-book"></i></a></li>              
             </ul>
         </nav>
     </header>
-    <main class="content">
+   <main class="content">
 
         <section id="introduction">
             <h2>المقدمة</h2>
@@ -93,40 +65,8 @@
 
         <section id="problem">
             <h2>اقسام المشروع</h2>
-            <p>على المشروع ان يشمل ثلاثة طبقات ( الزائرون ,المستخدمين, المدراء) </p>
-            
-            <h3>تفاصيل أقسام المشروع حسب الوظيفة</h3>
-            <table class="project-details-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>اسم القسم/الوظيفة</th>
-                        <th>المستخدمون المستهدفون</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>تسجيل الدخول/الخروج</td><td>الجميع</td></tr>
-                    <tr><td>2</td><td>عرض المنتجات (بدون شراء)</td><td>الزائرون</td></tr>
-                    <tr><td>3</td><td>تصفح التصنيفات</td><td>الجميع</td></tr>
-                    <tr><td>4</td><td>تسجيل مستخدم جديد</td><td>الزائرون</td></tr>
-                    <tr><td>5</td><td>إضافة منتج إلى سلة الشراء</td><td>المستخدمون</td></tr>
-                    <tr><td>6</td><td>تعديل سلة الشراء</td><td>المستخدمون</td></tr>
-                    <tr><td>7</td><td>إتمام عملية الشراء</td><td>المستخدمون</td></tr>
-                    <tr><td>8</td><td>عرض سجل الطلبات</td><td>المستخدمون</td></tr>
-                    <tr><td>9</td><td>تعديل بيانات الحساب</td><td>المستخدمون</td></tr>
-                    <tr><td>10</td><td>لوحة تحكم (الإحصائيات)</td><td>المدراء</td></tr>
-                    <tr><td>11</td><td>إدارة المنتجات (إضافة/تعديل/حذف)</td><td>المدراء</td></tr>
-                    <tr><td>12</td><td>إدارة التصنيفات</td><td>المدراء</td></tr>
-                    <tr><td>13</td><td>إدارة المستخدمين والصلاحيات</td><td>المدراء</td></tr>
-                    <tr><td>14</td><td>معالجة الطلبات وإدارتها</td><td>المدراء</td></tr>
-                    <tr><td>15</td><td>تخصيص العروض الترويجية</td><td>المدراء</td></tr>
-                    <tr><td>16</td><td>البحث المتقدم عن منتج</td><td>الجميع</td></tr>
-                    <tr><td>17</td><td>إرسال الإشعارات</td><td>المدراء</td></tr>
-                    <tr><td>18</td><td>عرض تقارير المبيعات</td><td>المدراء</td></tr>
-                    <tr><td>19</td><td>صفحة "من نحن"</td><td>الجميع</td></tr>
-                    <tr><td>20</td><td>التواصل مع الدعم الفني</td><td>الجميع</td></tr>
-                </tbody>
-            </table>
+            <p>على المشروع ان يشمل ثلاثة طبقات ( الزائرون ,المستخدمين, المدراء) </p>           
+          
         </section>
 
         <section id="architecture">
@@ -134,138 +74,16 @@
             <p>
                 على المشروع ان يشمل ثلاثة اقسام :
                 <ol>
-                    <li>Host</li>
-                    <li>Admin</li>
-                    <li>User</li>
-                </ol>
-                            </p>
-        </section>
-        
-        <section id="code-Host">
-            <h2>Host Files</h2>
-            <h3 id="host-file1">HostFile1.cs</h3>
-            <p>محتوى ملف Host الأول...</p>
-            <h3 id="host-file2">HostFile2.cs</h3>
-            <p>محتوى ملف Host الثاني...</p>
-        </section>
-        
-        <section id="database">
-            <h2>DataBase</h2>
-            <h3>القوائم</h3>
-            <div class="image-gallery">
-                <img src="/images/tables.jpg" alt="مخطط قوائم قاعدة البيانات">
-            </div>
-            <br><br>
-            <h3>الروابط</h3>
-            <div class="image-gallery">
-                <img src="/images/keshre.jpg" alt="روابط وجداول قاعدة البيانات">
-            </div>
-        </section>
-
-        <section id="code-Model">
-            <h2>Model</h2>
-            <h3 id="model-product">Product.cs</h3>
-            <pre>
-                  <code 
-                        class="github-code-block language-csharp"
-                        data-file-path="Model/Product.cs" 
-                        data-language="csharp"
-                        data-github-user="hanimanaa" 
-                        data-repo-name="haniproject2026"
-                    >
-                     جاري تحميل الكود...
-                </code>
-            </pre>
-            <p>يمكنك الاطلاع على الملف المصدر على GitHub: <a class="github-file-link" href="#" target="_blank">عرض الملف على GitHub</a></p>
-            <h3 id="model-category">Category.cs</h3>
-            <pre>
-                  <code                             
-                        class="github-code-block language-csharp" 
-                        data-file-path="Model/Category.cs" 
-                        data-language="csharp"
-                        data-github-user="hanimanaa" 
-                        data-repo-name="haniproject2026"
-                    >
-                     جاري تحميل الكود...
-                </code>
-            </pre>
-            <h3 id="model-productlist">ProductList.cs</h3>
-            <pre>
-                  <code 
-                        class="github-code-block language-csharp"
-                        data-file-path="Model/ProductList.cs" 
-                        data-language="csharp"
-                        data-github-user="hanimanaa" 
-                        data-repo-name="haniproject2026"
-                    >
-                     جاري تحميل الكود...
-                </code>
-            </pre>
-            <p>يمكنك الاطلاع على الملف المصدر على GitHub: <a class="github-file-link" href="#" target="_blank">عرض الملف على GitHub</a></p>
-            <h3 id="model-categorylist">CategoryList.cs</h3>
-            <pre>
-                  <code 
-                        class="github-code-block language-csharp"
-                        data-file-path="Model/CategoryList.cs" 
-                        data-language="csharp"
-                        data-github-user="hanimanaa" 
-                        data-repo-name="haniproject2026"
-                    >
-                     جاري تحميل الكود...
-                </code>
-            </pre>             
-           <p>يمكنك الاطلاع على الملف المصدر على GitHub: <a class="github-file-link" href="#" target="_blank">عرض الملف على GitHub</a></p>
-        </section>
-        
-        <section id="code-ViewModel">
-            <h2>ViewModel</h2>
-            <h3 id="viewmodel-productdb">ProductDB.cs</h3>
-            <pre>
-                  <code 
-                        class="github-code-block language-csharp"
-                        data-file-path="ViewModel/ProductDB.cs" 
-                        data-language="csharp"
-                        data-github-user="hanimanaa" 
-                        data-repo-name="haniproject2026"
-                    >
-                     جاري تحميل الكود...
-                </code>
-            </pre>
-            <p>يمكنك الاطلاع على الملف المصدر على GitHub: <a class="github-file-link" href="#" target="_blank">عرض الملف على GitHub</a></p>
-            <h3 id="viewmodel-categorydb">CategoryDB.cs</h3>
-            <pre>
-                  <code                             
-                        class="github-code-block language-csharp" 
-                        data-file-path="ViewModel/CategoryDB.cs" 
-                        data-language="csharp"
-                        data-github-user="hanimanaa" 
-                        data-repo-name="haniproject2026"
-                    >
-                     جاري تحميل الكود...
-                </code>
-            </pre> 
-             <p>يمكنك الاطلاع على الملف المصدر على GitHub: <a class="github-file-link" href="#" target="_blank">عرض الملف على GitHub</a></p> 
-    
-        </section>
-
-        <section id="results">
-            <h2>النتائج وصور من المشروع</h2>
-            <p>عرض لقطات شاشة لواجهة المستخدم، ومخطط يوضح دقة النموذج:</p>
-            <div class="image-gallery">
-                <img src="image1.jpg" alt="لقطة شاشة للواجهة الرئيسية">
-                <img src="image2.jpg" alt="صورة لمخطط دقة النموذج">
-            </div>
-        </section>
-
-        <section id="conclusion">
-            <h2>الخلاصة والتوصيات المستقبلية</h2>
-            <p>تم تحقيق أهداف المشروع بنجاح، حيث وصل النموذج إلى دقة 88%. نوصي مستقبلاً بتطبيق خوارزميات التعلم العميق (Deep Learning) لتحسين النتائج.</p>
-        </section>
-
-    </main>
+                    <li>  الخادم - Host  &nbsp;<i class="fa-solid fas fa-database"></i></li>
+                    <li>المستخدم - User&nbsp;<i class="fa-solid fa-users-gear"></i></li>
+                    <li>المدير - Admin&nbsp;<i class="fa-solid fa-user-tie"></i></li>                   
+                </ol>                       
+        </section>       
+   
+      </main>
 
     <footer class="footer">
-        <p>&copy; 2025 مشروع التخرج. جامعة [اسم الجامعة].</p>
+        <p>&copy; 2026 مشروع التخرج -  مدرسةالشاغور الثانوية - مجد الكروم</p>
     </footer>
 
     <script src="script.js"></script>
