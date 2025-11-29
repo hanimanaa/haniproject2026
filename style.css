@@ -173,6 +173,15 @@ body {
     padding: 50px 15%; 
     background-color: white; 
     max-width: 100%;
+    display: flex;
+    /* توجيه المحتوى بشكل عمودي (ليصبح التوسيط الأفقي منطقياً) */
+    flex-direction: column; 
+    /* توسيط المحتوى أفقياً (على طول المحور الرئيسي) */
+    align-items: center; 
+    /* لتوسيط النص والصور داخله أيضاً */
+   
+  
+
 }
 
 /* ... بقية التنسيقات (الأقسام، الأكواد، الجداول) كما هي ... */
@@ -180,6 +189,8 @@ body {
     margin-bottom: 50px;
     padding-bottom: 30px;
     border-bottom: 1px dashed #ccc;
+    max-width: 70%;
+   
 }
 
 .content h2 {
@@ -203,6 +214,9 @@ pre {
     font-size: 0.95em;
     line-height: 1.4;
     border: 1px solid #007bff; 
+    max-width: 100%;
+
+
 }
 pre code {
     direction: ltr; 
