@@ -181,6 +181,11 @@ body {
     padding-bottom: 30px;
     border-bottom: 1px dashed #ccc;
     max-width: 100%;
+    /* تحديد المسافة الفارغة بين أسفل الـ Header وأعلى القسم الهدف.
+    قيمة 150px جيدة كبداية لأن الـ Header الكلي يبدو أطول من 100px.
+    يمكنك تعديلها لزيادة المسافة أو تقليلها.
+    */
+    scroll-margin-top: 150px;
    
 }
 
