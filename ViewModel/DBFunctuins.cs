@@ -119,28 +119,6 @@ namespace ViewModel
             }
             return records;
         }
-
-
-
-        public bool CheckAdmin(string Email, string Password)
-        {
-            string strPass = "", id = "";
-            DataSet ds = new DataSet();
-            string strPath = Path() + "\\App_Data\\XMLloginFile.xml";
-
-            ds.ReadXml(strPath);
-            DataTable dt = ds.Tables[0];
-            if (dt != null)
-                if (dt.Rows.Count > 0)
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        id = dt.Rows[i]["name"].ToString();
-                        strPass = dt.Rows[i]["Password"].ToString();
-                        if (strPass == Password && Email == id)
-                            return true;
-                    }
-            return false;
-        }
     }
 }
    
