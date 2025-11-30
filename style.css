@@ -209,6 +209,7 @@ body {
     color: #f10000; 
     margin-top: 10px;
     font-size: 1.5em;
+    text-decoration: underline;
 }
 
 /* تنسيق عرض الكود (من GitHub) */
