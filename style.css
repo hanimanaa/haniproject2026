@@ -205,6 +205,13 @@ body {
    text-align: center;
 }
 
+.mes {
+       color: #f10000; 
+    padding-right: 15px;
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
 /* تنسيق عرض الكود (من GitHub) */
 pre {
     direction: ltr; 
