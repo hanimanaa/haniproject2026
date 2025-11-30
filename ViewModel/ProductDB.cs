@@ -27,19 +27,19 @@ namespace ViewModel
             product.category = categoryDB.SelectCategoryByNum(catNum);
 
             product.expiredDate = DateTime.Parse(reader["expiredDate"].ToString());
-            product.vegan = (reader["vegan"].ToString());
+            product.vegan = bool.Parse(reader["vegan"].ToString());
 
             return product;
         }
-        
+
         // Add new Product
         public int AddProduct(Product product)
         {
             string insertSql = string.Format("Insert into ProductTbl "
-                + "(productNum,productName,price,imageUrl,description,catNum,expiredDate,vegan)"
-                + " values ({0},'{1}',{2},'{3}','{4}',{5},{6},{7})"
-                ,product.productNum,product.productName,product.price,product.imageUrl,
-                product.description,product.category.catNum,product.expiredDate,product.vegan);
+                + "(productName,price,imageUrl,description,catNum,expiredDate,vegan)"
+                + " values ('{0}',{1},'{2}','{3}',{4},{5},{6})"
+                , product.productName, product.price, product.imageUrl,
+                product.description, product.category.catNum, product.expiredDate, product.vegan);
 
             return base.ChangeTable(insertSql, "Database2026.accdb");
         }
@@ -48,7 +48,7 @@ namespace ViewModel
         public int DeleteProductByProductNum(int productNum)
         {
             string delSql = string.Format("Delete from ProductTbl "
-                + "where productNum= {0}", productNum) ;
+                + "where productNum= {0}", productNum);
             return base.ChangeTable(delSql, "Database2026.accdb");
         }
 
@@ -59,12 +59,12 @@ namespace ViewModel
                 + "productName={0},price={1},imageUrl={2},description={3}"
                 + ",catNum={4},expiredDate={5},vegan={6}"
                 + " where productNum={7}"
-                ,product.productName, product.price, product.imageUrl,
+                , product.productName, product.price, product.imageUrl,
                 product.description, product.category.catNum, product.expiredDate,
                 product.vegan, product.productNum);
 
             return base.ChangeTable(updateSql, "Database2026.accdb");
-        }    
+        }
 
         // Select Products
         private ProductList SelectProducts(string sqlStr)
@@ -98,6 +98,30 @@ namespace ViewModel
         public ProductList SelectAllProducts()
         {
             string sqlStr = "Select * From ProductTbl";
+            ProductList list = SelectProducts(sqlStr);
+            return productsList;
+        }
+
+        // Select All Select Product By ProductNum
+        public Product SelectProductByProductNum(int productNum)
+        {
+            productsList = SelectAllProducts();
+            Product p = productsList.Find(item => item.productNum == productNum);
+            return p;
+        }
+
+        // Select All Select Products By Price
+        public ProductList SelectAllProductsByPrice(double price)
+        {
+            string sqlStr = string.Format("Select * From ProductTbl where price <= {0}", price);
+            ProductList list = SelectProducts(sqlStr);
+            return productsList;
+        }
+
+        // Select All Select Products DESC
+        public ProductList SelectAllProductsDESC()
+        {
+            string sqlStr = "Select * From ProductTbl order by Price DESC;";
             ProductList list = SelectProducts(sqlStr);
             return productsList;
         }

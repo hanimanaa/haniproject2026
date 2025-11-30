@@ -17,7 +17,7 @@ namespace ViewModel
         private Category CreateModel(Category category)
         {
             category.catNum = int.Parse(reader["catNum"].ToString());
-            category.catName =reader["catName"].ToString();
+            category.catName = reader["catName"].ToString();
             return category;
         }
         // Add new Category
@@ -41,11 +41,10 @@ namespace ViewModel
         public int UpdateCategory(Category category)
         {
             string updateSql = string.Format("Update CategoryTbl SET "
-                + "catName='{0}'"  
+                + "catName='{0}'"
                 + " where catNum={1}", category.catName, category.catNum);
             return base.ChangeTable(updateSql, "Database2026.accdb");
         }
-
         // Select Categories
         private CategoryList SelectCategories(string sqlStr)
         {
@@ -73,13 +72,19 @@ namespace ViewModel
             }
             return categoriesList;
         }
-
         // Select All Categories
         public CategoryList SelectAllCategories()
         {
             string sqlStr = "Select * From CategoryTbl";
             CategoryList list = SelectCategories(sqlStr);
             return list;
+        }
+        // Select Category By Num
+        public Category SelectCategoryByNum(int catNum)
+        {
+            categoriesList = SelectAllCategories();
+            Category c = categoriesList.Find(item => item.catNum == catNum);
+            return c;
         }
 
 
