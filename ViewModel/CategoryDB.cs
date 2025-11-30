@@ -87,6 +87,5 @@ namespace ViewModel
             return c;
         }
 
-
     }
 }
