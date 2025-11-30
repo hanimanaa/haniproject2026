@@ -10,7 +10,7 @@ namespace ViewModel
     public class ProductDB : DBFunctuins
     {
         Product product = null;
-        ProductList productsList = new ProductList();
+        ProductList productsList = new ProductList(); 
 
         public ProductDB() : base() { }
 
@@ -31,7 +31,7 @@ namespace ViewModel
 
             return product;
         }
-
+        
         // Add new Product
         public int AddProduct(Product product)
         {
