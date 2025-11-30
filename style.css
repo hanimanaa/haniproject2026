@@ -189,12 +189,19 @@ body {
    
 }
 
-.content h3 {
-    color: #f10000; 
+.content p  {
+    color: #000000; 
     padding-right: 15px;
     margin-top: 0;
     font-size: 1.5em;
 }
+.mes {
+       color: #f10000; 
+    padding-right: 15px;
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
 .content h2 {
     color: #004085; 
     border-right: 5px solid #004085; 
