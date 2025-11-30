@@ -189,6 +189,12 @@ body {
    
 }
 
+.content h3 {
+    color: #004085; 
+    padding-right: 15px;
+    margin-top: 0;
+    font-size: 1.5em;
+}
 .content h2 {
     color: #004085; 
     border-right: 5px solid #004085; 
