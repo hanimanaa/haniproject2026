@@ -1,0 +1,37 @@
+﻿<Window x:Class="WpfHobbies.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+        xmlns:local="clr-namespace:WpfHobbies"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1400" WindowStartupLocation="CenterScreen">
+    <Grid FlowDirection="RightToLeft">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <HamburgerMenu:HamburgerMenu Grid.Column="0" MaxWidth="140"  MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left">
+            <HamburgerMenu:HamburgerMenu.Background>
+                <ImageBrush ImageSource="images/mountain.jpeg" Stretch="None"/>
+            </HamburgerMenu:HamburgerMenu.Background>
+            <HamburgerMenu:HamburgerMenu.Content>
+                <HamburgerMenu:HamburgerMenuItem Icon="images/home.png" Text="Home" SelectionCommand="{Binding ElementName=this_}" Selected="Home_Selected"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="images/product.png" Text="Productes" />
+                <HamburgerMenu:HamburgerMenuItem Icon="images/category.png" Text="Category" Selected="Category_Selected" />
+                <HamburgerMenu:HamburgerMenuItem Icon="images/users.png" Text="משתמשים" Selected="Users_Selected"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="images/icon.png" Text="Orders" Selected="Order_Selected"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="images/profile.png" Text="Profile"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="images/settings.png" Text="Settings"/>
+                <HamburgerMenu:HamburgerMenuItem/>
+                <HamburgerMenu:HamburgerMenuItem/>
+                <HamburgerMenu:HamburgerMenuItem/>
+                <HamburgerMenu:HamburgerMenuItem Icon="images/exit.png" Text="Exit" Selected="Exit_Selected"/>
+
+            </HamburgerMenu:HamburgerMenu.Content>
+        </HamburgerMenu:HamburgerMenu>
+        <Frame x:Name="myFrame" Grid.Column="1" Source="Home.xaml" />
+
+    </Grid>
+</Window>

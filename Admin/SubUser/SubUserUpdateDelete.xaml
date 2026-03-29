@@ -1,0 +1,78 @@
+﻿<Page x:Class="WpfHobbies.SubUser.SubUserUpdateDelete"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHobbies.SubUser"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="400"
+      Title="SubUserUpdateDelete">
+
+    <!-- Grid   -->
+    <Grid x:Name="Form"  FlowDirection="RightToLeft"   >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Bisque" Offset="0"/>
+                <GradientStop Color="Beige" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- TextBlock   -->
+        <TextBlock Grid.Column="0" Grid.Row="0" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="דואר אלקטרוני" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="סיסמה" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="שם פרטי" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="שם משפחה" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="4" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="תאריך לידה" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="מין" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="6" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="טלפון" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="7" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="עיר" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="8" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="מאשר קבלת הודעות ?" VerticalAlignment="Center"/>
+
+        <!-- TextBox   -->
+        <TextBox x:Name="emailBox" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text=""  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Background="#FFE2DEDE" />
+        <TextBox x:Name="fNameBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+        <TextBox x:Name="lNameBox" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+        <TextBox x:Name="telBox" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+
+        <!-- PasswordBox -->
+        <PasswordBox x:Name="passBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  Height="30" Width="200" FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+
+        <!-- DatePicker   -->
+        <DatePicker x:Name="birthdayDP" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"  VerticalAlignment="Center"  FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+
+        <!-- RadioButton   -->
+        <StackPanel x:Name="genderRB" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center"  Orientation="Horizontal" >
+            <RadioButton x:Name="genderMaleRB" Margin="10,0,0,0"  FontSize="16" IsChecked="True">זכר</RadioButton>
+            <RadioButton x:Name="genderFMaleRB" Margin="10,0,0,0"  FontSize="16">נקבה</RadioButton>
+        </StackPanel>
+
+        <!-- ComboBox  -->
+        <ComboBox x:Name="cityCB" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Width="200" FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <!-- CheckBox  -->
+        <CheckBox x:Name="messageCB" Content="כן, מאשר." Grid.Column="1" Grid.Row="8"  HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+
+        <!-- Button  -->
+        <StackPanel Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center"  Orientation="Horizontal" >
+            <Button x:Name="updateBtn" Content="עדכן" Margin="10,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Width="95" FontSize="16" Click="updateBtn_Click"  />
+            <Button x:Name="deleteBtn" Content="מחק" Margin="10,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Width="95" FontSize="16" Background="red" Foreground="White" FontWeight="Bold" Click="deleteBtn_Click" />
+        </StackPanel>
+
+    </Grid>
+</Page>

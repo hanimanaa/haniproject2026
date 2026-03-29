@@ -1,0 +1,22 @@
+﻿<Page x:Class="WpfHobbies.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHobbies"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1400"
+      Title="Home">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="487,143,0,0" TextWrapping="Wrap" FontSize="40" Text="Home" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="403,196,0,0" TextWrapping="Wrap" FontSize="40" Text="Wellcom Admin" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="351" Margin="362,281,0,0" VerticalAlignment="Top" Width="430" Source="images\home.png"/>
+        <TextBlock x:Name="dateTB" HorizontalAlignment="Left" Margin="855,143,0,0" TextWrapping="Wrap" FontSize="40" Text="------------" VerticalAlignment="Top"/>
+
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Margin="420,704,751,78" FontSize="14" 
+                   Text="Copyright &#xA9; 2025-2026 Hani Manaa "/>
+
+    </Grid>
+</Page>
