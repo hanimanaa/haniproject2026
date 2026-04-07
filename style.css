@@ -123,6 +123,7 @@ main.content, section, pre, table, .image-gallery {
     background-color: #e9f5ff; 
     color: #007bff;
 }
+
 .top-navbar ul.nav-links li {
     position: relative;
     display: inline-block;
@@ -131,6 +132,10 @@ main.content, section, pre, table, .image-gallery {
 /* ------------------------------------------- */
 /* 🌟 تنسيقات القائمة المنسدلة 🌟 */
 /* ------------------------------------------- */
+.has-dropdown {
+    position: relative;
+}
+
 .has-dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -141,8 +146,8 @@ main.content, section, pre, table, .image-gallery {
     list-style: none;
     padding: 10px 0;
     position: absolute;
-    right: 0; 
     top: 100%; 
+    right: 0; 
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -151,6 +156,24 @@ main.content, section, pre, table, .image-gallery {
     visibility: hidden;
     transform: translateY(10px);
     transition: all 0.3s ease;
+    min-width: 180px; 
+    z-index: 1001; 
+    text-align: right; 
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4f7fa;
 }
 
 /* ------------------------------------------- */
