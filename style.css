@@ -1,4 +1,4 @@
-﻿/* تنسيقات أساسية للخطوط والاتجاه */
+﻿/* تنسيقات أساسية */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -10,7 +10,7 @@ body {
     scroll-behavior: smooth; 
 }
 
-/* 🌟 إضافة الصورة الشخصية بنمط عائم وثابت 🌟 */
+/* 🌟 الصورة الشخصية العائمة (ثابتة في كل الصفحات) 🌟 */
 body::before {
     content: "";
     background-image: url('images/hani.png'); 
@@ -20,26 +20,16 @@ body::before {
     position: fixed;
     bottom: 15px;
     left: 15px;
-    width: 220px; 
-    height: 220px;
-    opacity: 0.3; /* درجة الشفافية المطلوبة */
-    display: block;
-    z-index: 999999 !important; /* تطفو فوق كل شيء */
-    pointer-events: none; /* لا تعيق النقر */
+    width: 200px; 
+    height: 200px;
+    opacity: 0.3;
+    z-index: 999999 !important;
+    pointer-events: none;
 }
 
-/* ضمان ترتيب الطبقات للمحتوى */
-main.content, section, pre, table, .image-gallery {
-    position: relative;
-    z-index: 1;
-}
-
-/* 🌟 تنسيقات الترويسة (Header) 🌟 */
+/* 🌟 الترويسة وشريط العنوان 🌟 */
 .header {
-    background-color: white; 
-    color: #333;
-    padding: 0;
-    text-align: center;
+    background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
     position: sticky; 
     top: 0;
@@ -50,58 +40,63 @@ main.content, section, pre, table, .image-gallery {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 20px 15%; 
+    padding: 15px 15%; 
     background-color: #004085; 
     color: white;
 }
 
 .contact-info {
-    font-size: 1em;
     direction: ltr;
+    font-size: 0.9em;
 }
 
+/* 🌟 إصلاح القائمة الرئيسية (التي فسدت) 🌟 */
 .top-navbar {
     background-color: white; 
-    padding: 15px 15%; 
+    padding: 10px 15%; 
     border-top: 1px solid #eee;
-    text-align: center;
 }
 
 .top-navbar ul.nav-links {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; 
+    display: flex; /* لضمان بقائها بجانب بعضها */
     justify-content: center; 
+    align-items: center;
+}
+
+.top-navbar ul.nav-links li {
+    margin: 0 15px; /* مسافة بين الروابط */
 }
 
 .top-navbar a {
     text-decoration: none;
     color: #1a1a1a; 
     font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: all 0.3s;
-}
-
-/* 🌟 تنسيق المحتوى 🌟 */
-.content {
-    padding: 50px 15%; 
-    background-color: white; 
-}
-
-.content h1 {
-    color: #004085; 
-    border: 5px solid #004085; 
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-}
-
-/* تنسيق عرض الصور */
-.image-gallery {
+    padding: 10px 15px;
+    transition: 0.3s;
     display: block;
-    margin-top: 20px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.top-navbar a i {
+    margin-top: 5px;
+    font-size: 1.1em;
+}
+
+.top-navbar a:hover {
+    color: #007bff;
+    background-color: #f0f7ff;
+    border-radius: 8px;
+}
+
+/* 🌟 المحتوى والصور 🌟 */
+.content {
+    padding: 40px 15%; 
+    background-color: white; 
+    min-height: 80vh;
 }
 
 .image-gallery img {
@@ -109,9 +104,26 @@ main.content, section, pre, table, .image-gallery {
     height: auto;
     border: 5px solid #004085; 
     border-radius: 8px;
+    margin-top: 15px;
 }
 
-/* 📱 تنسيقات خاصة بالهواتف (Media Queries) 📱 */
+pre {
+    direction: ltr;
+    background: #282c34;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* 🌟 التذييل 🌟 */
+.footer {
+    background-color: #004085; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 📱 التوافق مع الهاتف (بدون إفساد التصميم) 📱 */
 @media (max-width: 768px) {
     .top-header-bar, .top-navbar, .content {
         padding-left: 5% !important;
@@ -120,39 +132,26 @@ main.content, section, pre, table, .image-gallery {
 
     .top-header-bar {
         flex-direction: column;
-        text-align: center;
+        padding: 10px;
     }
 
     .top-navbar ul.nav-links {
-        flex-wrap: wrap;
-        gap: 5px;
+        flex-wrap: wrap; /* للسماح بالنزول لسطر جديد فقط في الهاتف */
     }
 
-    /* تصغير الصورة العائمة للهاتف */
+    .top-navbar ul.nav-links li {
+        margin: 5px;
+        flex: 1 1 40%; /* جعل كل زرين في سطر */
+    }
+
+    .top-navbar a {
+        font-size: 0.85em;
+        padding: 8px;
+    }
+
     body::before {
-        width: 120px; 
+        width: 120px;
         height: 120px;
         opacity: 0.2;
     }
-
-    /* جعل الصور مرنة تماماً على الهاتف */
-    .image-gallery img {
-        width: 100% !important;
-        height: auto;
-    }
-
-    pre {
-        font-size: 0.8em;
-        padding: 10px;
-    }
-}
-
-/* التذييل */
-.footer {
-    background-color: #004085; 
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    z-index: 1000000;
 }
