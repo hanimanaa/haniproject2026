@@ -9,6 +9,10 @@ body {
     text-align: right;
     scroll-behavior: smooth; 
 }
+/* حل مشكلة تغطية الهيدر للمحتوى عند الانتقال للروابط */
+section[id], div[id], h1[id], h2[id] {
+    scroll-margin-top: 110px; 
+}
 
 /* 🌟 إضافة الصورة الشخصية بنمط عائم وثابت 🌟 */
 body::before {
