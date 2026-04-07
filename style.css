@@ -10,6 +10,26 @@ body {
     scroll-behavior: smooth; 
 }
 
+/* 🌟 إضافة الصورة الشخصية في الخلفية بشكل ثابت 🌟 */
+body::before {
+    content: "";
+    background-image: url('images/relationships.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 250px; 
+    height: 250px;
+    opacity: 0.3; /* درجة الشفافية */
+    
+    z-index: 9999; /* لضمان ظهورها فوق الخلفية */
+    pointer-events: none; /* لكي لا تعيق النقر على المحتوى */
+    display: block;
+}
+
 /* ------------------------------------------- */
 /* 🌟 تنسيقات الترويسة (Header) 🌟 */
 /* ------------------------------------------- */
@@ -298,27 +318,3 @@ pre code {
     transform: translateY(0);
 }
 
-/* إضافة الصورة الشخصية في الخلفية */
-body::after {
-    content: "";
-    background-image: url('images/UsersUpdateDelete.png'); /* استبدل هذا بمسار صورتك */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    
-    /* تحديد الشفافية */
-    opacity: 0.3; 
-    
-    /* جعلها ثابتة في الشاشة */
-    position: fixed;
-    bottom: 20px; /* مسافة بسيطة من الأسفل */
-    left: 20px;   /* مسافة بسيطة من اليسار */
-    
-    /* تحديد حجم الصورة */
-    width: 250px; 
-    height: 350px;
-    
-    /* التأكد من أنها خلف المحتوى ولا تعيق الضغط على الروابط */
-    z-index: -1; 
-    pointer-events: none;
-}
