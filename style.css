@@ -29,7 +29,7 @@ body::before {
     height: 220px;
     
     /* الشفافية والظهور */
-    opacity: 1; 
+    opacity: 0.8; 
     display: block;
     
     /* زاوية التكديس: لضمان ظهورها فوق محتوى صفحة الـ Host المعقد */
