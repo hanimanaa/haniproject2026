@@ -297,3 +297,28 @@ pre code {
     visibility: visible;
     transform: translateY(0);
 }
+
+/* إضافة الصورة الشخصية في الخلفية */
+body::after {
+    content: "";
+    background-image: url('images/relationships.png'); /* استبدل هذا بمسار صورتك */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    
+    /* تحديد الشفافية */
+    opacity: 0.3; 
+    
+    /* جعلها ثابتة في الشاشة */
+    position: fixed;
+    bottom: 20px; /* مسافة بسيطة من الأسفل */
+    left: 20px;   /* مسافة بسيطة من اليسار */
+    
+    /* تحديد حجم الصورة */
+    width: 250px; 
+    height: 350px;
+    
+    /* التأكد من أنها خلف المحتوى ولا تعيق الضغط على الروابط */
+    z-index: -1; 
+    pointer-events: none;
+}
