@@ -162,11 +162,14 @@ main.content, section, pre, table, .image-gallery {
 }
 
 .dropdown-menu li {
-    display: block;
+    display: block !important;
+    width: 100%;
 }
 
 .dropdown-menu li a {
-    display: block;
+    display: block !important;
+    width: 100%;
+    box-sizing: border-box; /* لضمان عدم خروج النص عن الإطار الداخلي */
     padding: 10px 15px;
     color: #333;
     transition: background-color 0.3s;
