@@ -301,7 +301,7 @@ pre code {
 /* إضافة الصورة الشخصية في الخلفية */
 body::after {
     content: "";
-    background-image: url('images/relationships.png'); /* استبدل هذا بمسار صورتك */
+    background-image: url('images/UsersUpdateDelete.png'); /* استبدل هذا بمسار صورتك */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom left;
