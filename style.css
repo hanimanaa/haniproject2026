@@ -1,4 +1,4 @@
-﻿/* تنسيقات أساسية */
+﻿/* تنسيقات أساسية للخطوط والاتجاه */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -10,7 +10,7 @@ body {
     scroll-behavior: smooth; 
 }
 
-/* 🌟 الصورة الشخصية العائمة (ثابتة في كل الصفحات) 🌟 */
+/* 🌟 إضافة الصورة الشخصية بنمط عائم وثابت 🌟 */
 body::before {
     content: "";
     background-image: url('images/hani.png'); 
@@ -20,16 +20,28 @@ body::before {
     position: fixed;
     bottom: 15px;
     left: 15px;
-    width: 200px; 
-    height: 200px;
-    opacity: 0.3;
-    z-index: 999999 !important;
-    pointer-events: none;
+    width: 220px; 
+    height: 220px;
+    opacity: 0.3; 
+    display: block;
+    z-index: 999999 !important; 
+    pointer-events: none; 
 }
 
-/* 🌟 الترويسة وشريط العنوان 🌟 */
+/* ضمان ترتيب الطبقات للمحتوى */
+main.content, section, pre, table, .image-gallery {
+    position: relative;
+    z-index: 1;
+}
+
+/* ------------------------------------------- */
+/* 🌟 تنسيقات الترويسة (Header) 🌟 */
+/* ------------------------------------------- */
 .header {
-    background-color: white;
+    background-color: white; 
+    color: #333;
+    padding: 0;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
     position: sticky; 
     top: 0;
@@ -40,63 +52,121 @@ body::before {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 15px 15%; 
+    padding: 20px 15%; 
     background-color: #004085; 
     color: white;
 }
 
-.contact-info {
-    direction: ltr;
-    font-size: 0.9em;
+.project-title h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: white;
+    font-weight: 600;
 }
 
-/* 🌟 إصلاح القائمة الرئيسية (التي فسدت) 🌟 */
+.contact-info {
+    font-size: 1em;
+    direction: ltr;
+}
+
+.contact-info span {
+    margin-left: 20px; 
+    color: #cfe2ff;
+    white-space: nowrap;
+}
+
+/* 🌟 شريط التنقل الرئيسي (Top Navbar) 🌟 */
 .top-navbar {
     background-color: white; 
-    padding: 10px 15%; 
+    padding: 15px 15%; 
     border-top: 1px solid #eee;
+    text-align: center;
 }
 
 .top-navbar ul.nav-links {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* لضمان بقائها بجانب بعضها */
+    display: flex; 
     justify-content: center; 
-    align-items: center;
 }
 
-.top-navbar ul.nav-links li {
-    margin: 0 15px; /* مسافة بين الروابط */
+.top-navbar ul.nav-links > li {
+    margin: 0 18px;
 }
 
 .top-navbar a {
     text-decoration: none;
     color: #1a1a1a; 
     font-weight: 600;
-    padding: 10px 15px;
-    transition: 0.3s;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s;
     display: block;
-    text-align: center;
-    line-height: 1.2;
 }
 
-.top-navbar a i {
-    margin-top: 5px;
-    font-size: 1.1em;
-}
-
-.top-navbar a:hover {
+.top-navbar a:hover,
+.top-navbar a.active {
+    background-color: #e9f5ff; 
     color: #007bff;
-    background-color: #f0f7ff;
-    border-radius: 8px;
 }
 
-/* 🌟 المحتوى والصور 🌟 */
+/* ------------------------------------------- */
+/* 🌟 تنسيق المحتوى 🌟 */
+/* ------------------------------------------- */
 .content {
-    padding: 40px 15%; 
+    padding: 50px 15%; 
     background-color: white; 
-    min-height: 80vh;
+}
+
+.content h1 {
+    color: #004085; 
+    border: 5px solid #004085; 
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+.content h2 {
+    color: #004085; 
+    border-right: 5px solid #004085; 
+    padding-right: 15px;
+    margin-top: 30px;
+}
+
+/* تنسيق الجداول */
+.project-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.project-details-table thead th {
+    background-color: #004085;
+    color: white;
+    padding: 12px;
+}
+
+.project-details-table tbody td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* تنسيق الأكواد */
+pre {
+    direction: ltr; 
+    text-align: left; 
+    background-color: #212529; 
+    color: #e8e8e8; 
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* تنسيق معرض الصور */
+.image-gallery {
+    display: block;
+    margin-top: 20px;
 }
 
 .image-gallery img {
@@ -104,54 +174,14 @@ body::before {
     height: auto;
     border: 5px solid #004085; 
     border-radius: 8px;
-    margin-top: 15px;
 }
 
-pre {
-    direction: ltr;
-    background: #282c34;
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
-}
-
-/* 🌟 التذييل 🌟 */
+/* التذييل (Footer) */
 .footer {
     background-color: #004085; 
     color: white;
     text-align: center;
     padding: 20px;
-}
-
-/* 📱 التوافق مع الهاتف (بدون إفساد التصميم) 📱 */
-@media (max-width: 768px) {
-    .top-header-bar, .top-navbar, .content {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
-    }
-
-    .top-header-bar {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .top-navbar ul.nav-links {
-        flex-wrap: wrap; /* للسماح بالنزول لسطر جديد فقط في الهاتف */
-    }
-
-    .top-navbar ul.nav-links li {
-        margin: 5px;
-        flex: 1 1 40%; /* جعل كل زرين في سطر */
-    }
-
-    .top-navbar a {
-        font-size: 0.85em;
-        padding: 8px;
-    }
-
-    body::before {
-        width: 120px;
-        height: 120px;
-        opacity: 0.2;
-    }
+    position: relative;
+    z-index: 1000000;
 }
