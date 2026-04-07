@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<style>
+  .custom-paragraph {
+    /* إضافة طبقة سوداء شفافة بنسبة 60% فوق الصورة */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url('images/UsersSearch.jpg'); 
+    
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    color: #000000; /* نص أبيض ليكون متبايناً مع الخلفية الداكنة */
+    text-shadow: #000000;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    opacity:0.7;
+  }
+
+  /* إضافة تأثير عند تمرير الماوس لزيادة الشفافية (اختياري) */
+  .custom-paragraph:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url('images/UsersSearch.jpg'); 
+    transition: 0.3s;
+  }
+</style>
+</head>
+<body>
+
+  <p class="custom-paragraph">
+    تم تطبيق خفض الشفافية هنا باستخدام طبقة لونية (Overlay). 
+    لاحظ كيف أن الصورة تبدو داكنة وهادئة، بينما يظل النص ساطعاً وسهل القراءة.
+    <br><br><br><br><br><br><br>
+  </p>
+
+</body>
+</html>
