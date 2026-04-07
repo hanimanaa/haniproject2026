@@ -10,25 +10,43 @@ body {
     scroll-behavior: smooth; 
 }
 
-/* 🌟 إضافة الصورة الشخصية العائمة دون التأثير على التصميم 🌟 */
+/* 🌟 إضافة الصورة الشخصية بنمط عائم وثابت 🌟 */
 body::before {
     content: "";
+    /* تأكد من أن المسار صحيح لملف الصورة */
     background-image: url('images/hani.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    
+    /* التثبيت في الشاشة بحيث تطفو في الزاوية اليسرى السفلى */
     position: fixed;
     bottom: 15px;
-    left: 15px;
+    left: 0px;
+    
+    /* أبعاد الصورة */
     width: 220px; 
     height: 220px;
-    opacity: 0.3; 
-    z-index: 9999; 
+    
+    /* الشفافية والظهور */
+    opacity: 0.8; 
+    display: block;
+    
+    /* زاوية التكديس: لضمان ظهورها فوق محتوى صفحة الـ Host المعقد */
+    z-index: 999999 !important; 
+    
+    /* السماح للماوس بالمرور من خلالها للضغط على ما خلفها */
     pointer-events: none; 
 }
 
+/* ضمان أن محتوى الصفحة لا يغطي الصورة العائمة */
+main.content, section, pre, table, .image-gallery {
+    position: relative;
+    z-index: 1;
+}
+
 /* ------------------------------------------- */
-/* 🌟 تنسيقات الترويسة (Header) - التصميم الأصلي 🌟 */
+/* 🌟 تنسيقات الترويسة (Header) 🌟 */
 /* ------------------------------------------- */
 .header {
     background-color: white; 
@@ -58,6 +76,11 @@ body::before {
     font-weight: 600;
 }
 
+.project-title h1 i {
+    margin-left: 10px;
+    color: white;
+}
+
 .contact-info {
     font-size: 1em;
     direction: ltr;
@@ -69,7 +92,7 @@ body::before {
     white-space: nowrap;
 }
 
-/* 🌟 شريط التنقل (Menu) - العودة للتصميم الأصلي 🌟 */
+/* 🌟 شريط التنقل الرئيسي (Top Navbar) 🌟 */
 .top-navbar {
     background-color: white; 
     padding: 15px 15%; 
@@ -83,10 +106,6 @@ body::before {
     padding: 0;
     display: flex; 
     justify-content: center; 
-}
-
-.top-navbar ul.nav-links > li {
-    margin: 0 18px;
 }
 
 .top-navbar a {
@@ -103,6 +122,31 @@ body::before {
 .top-navbar a.active {
     background-color: #e9f5ff; 
     color: #007bff;
+}
+
+/* ------------------------------------------- */
+/* 🌟 تنسيقات القائمة المنسدلة 🌟 */
+/* ------------------------------------------- */
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu {
+    list-style: none;
+    padding: 10px 0;
+    position: absolute;
+    right: 0; 
+    top: 100%; 
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0; 
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
 }
 
 /* ------------------------------------------- */
@@ -125,7 +169,6 @@ body::before {
     color: #004085; 
     border-right: 5px solid #004085; 
     padding-right: 15px;
-    margin-top: 30px;
 }
 
 /* تنسيق الجداول والأكواد */
@@ -136,4 +179,33 @@ body::before {
 }
 
 .project-details-table thead th {
-    background-color: #0040
+    background-color: #004085;
+    color: white;
+    padding: 12px;
+}
+
+.project-details-table tbody td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+pre {
+    direction: ltr; 
+    text-align: left; 
+    background-color: #212529; 
+    color: #e8e8e8; 
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #004085; 
+}
+
+/* التذييل (Footer) */
+.footer {
+    background-color: #004085; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1000000; /* لضمان ظهور الفوتر فوق الصورة عند الوصول لنهاية الصفحة */
+}
