@@ -10,24 +10,39 @@ body {
     scroll-behavior: smooth; 
 }
 
-/* 🌟 إضافة الصورة الشخصية في الخلفية بشكل ثابت 🌟 */
+/* 🌟 إضافة الصورة الشخصية بنمط عائم وثابت 🌟 */
 body::before {
     content: "";
+    /* تأكد من أن المسار صحيح لملف الصورة */
     background-image: url('images/relationships.png'); 
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: bottom left;
+    background-position: center;
     
+    /* التثبيت في الشاشة بحيث تطفو في الزاوية اليسرى السفلى */
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    width: 250px; 
-    height: 250px;
-    opacity: 0.3; /* درجة الشفافية */
+    bottom: 15px;
+    left: 15px;
     
-    z-index: 9999; /* لضمان ظهورها فوق الخلفية */
-    pointer-events: none; /* لكي لا تعيق النقر على المحتوى */
+    /* أبعاد الصورة */
+    width: 220px; 
+    height: 220px;
+    
+    /* الشفافية والظهور */
+    opacity: 0.4; 
     display: block;
+    
+    /* زاوية التكديس: لضمان ظهورها فوق محتوى صفحة الـ Host المعقد */
+    z-index: 999999 !important; 
+    
+    /* السماح للماوس بالمرور من خلالها للضغط على ما خلفها */
+    pointer-events: none; 
+}
+
+/* ضمان أن محتوى الصفحة لا يغطي الصورة العائمة */
+main.content, section, pre, table, .image-gallery {
+    position: relative;
+    z-index: 1;
 }
 
 /* ------------------------------------------- */
@@ -38,6 +53,7 @@ body::before {
     color: #333;
     padding: 0;
     text-align: center;
+    border-bottom: none; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
     position: sticky; 
     top: 0;
@@ -58,6 +74,11 @@ body::before {
     margin: 0;
     color: white;
     font-weight: 600;
+}
+
+.project-title h1 i {
+    margin-left: 10px;
+    color: white;
 }
 
 .contact-info {
@@ -84,12 +105,7 @@ body::before {
     margin: 0;
     padding: 0;
     display: flex; 
-    justify-content :center; 
-}
-
-.top-navbar ul.nav-links > li {
-    margin: 0 18px;
-    position: relative;
+    justify-content: center; 
 }
 
 .top-navbar a {
@@ -109,12 +125,36 @@ body::before {
 }
 
 /* ------------------------------------------- */
-/* 🌟 تنسيق المحتوى لزيادة المساحة الجانبية 🌟 */
+/* 🌟 تنسيقات القائمة المنسدلة 🌟 */
+/* ------------------------------------------- */
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu {
+    list-style: none;
+    padding: 10px 0;
+    position: absolute;
+    right: 0; 
+    top: 100%; 
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0; 
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+/* ------------------------------------------- */
+/* 🌟 تنسيق المحتوى 🌟 */
 /* ------------------------------------------- */
 .content {
     padding: 50px 15%; 
     background-color: white; 
-    min-height: 100vh; /* لضمان وجود مساحة كافية للتمرير */
 }
 
 .content h1 {
@@ -129,10 +169,9 @@ body::before {
     color: #004085; 
     border-right: 5px solid #004085; 
     padding-right: 15px;
-    margin-top: 30px;
 }
 
-/* تنسيق الجداول */
+/* تنسيق الجداول والأكواد */
 .project-details-table {
     width: 100%;
     border-collapse: collapse;
@@ -150,6 +189,17 @@ body::before {
     border: 1px solid #ccc;
 }
 
+pre {
+    direction: ltr; 
+    text-align: left; 
+    background-color: #212529; 
+    color: #e8e8e8; 
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #004085; 
+}
+
 /* التذييل (Footer) */
 .footer {
     background-color: #004085; 
@@ -157,12 +207,5 @@ body::before {
     text-align: center;
     padding: 20px;
     position: relative;
-    z-index: 1001; /* ليكون فوق الصورة الشخصية */
-}
-
-/* استجابة القوائم المنسدلة */
-.has-dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    z-index: 1000000; /* لضمان ظهور الفوتر فوق الصورة عند الوصول لنهاية الصفحة */
 }
