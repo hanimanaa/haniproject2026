@@ -9,8 +9,6 @@ namespace Model
     public class City
     {
         public int cityNum { get; set; }
-        public string cityName { get; set; }
-
-     
+        public string cityName { get; set; }     
     }
 }

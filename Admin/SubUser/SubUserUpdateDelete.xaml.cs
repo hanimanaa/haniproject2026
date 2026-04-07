@@ -14,6 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfHobbies.ServiceReference1;
 
+using System.Text.RegularExpressions;
+
+
 namespace WpfHobbies.SubUser
 {
     /// <summary>
@@ -22,6 +25,7 @@ namespace WpfHobbies.SubUser
     public partial class SubUserUpdateDelete : Page
     {
         Service1Client srv = new Service1Client();
+        public SubUserUpdateDelete() { }
         public SubUserUpdateDelete(User user)
         {
             InitializeComponent();
@@ -56,6 +60,21 @@ namespace WpfHobbies.SubUser
 
         private void updateBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(emailBox.Text) || String.IsNullOrWhiteSpace(passBox.Password) || String.IsNullOrWhiteSpace(fNameBox.Text) || String.IsNullOrWhiteSpace(lNameBox.Text) || String.IsNullOrWhiteSpace(telBox.Text))
+            {
+                MessageBox.Show("נא למלא את כל השדות", "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (!Validation.IsValidEmail(emailBox.Text))
+            {
+                MessageBox.Show("דואר אלקטרוני לא תקין", "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (!Validation.IsValidPhone(telBox.Text))
+            {
+                MessageBox.Show("מספר טלפון לא תקין", "שגיאה", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             User user = new User();
             user.userEmail = emailBox.Text;
             user.userPassword = passBox.Password;
@@ -77,17 +96,12 @@ namespace WpfHobbies.SubUser
                 user.message = false;
 
             if (srv.UpdateUser(user) > 0)
+            {
                 MessageBox.Show("The User : " + user.userEmail + " is Update !!");
+                RefreshData();
+            }          
             else
                 MessageBox.Show("Not update !! ");
-
-            // حتلنة بيانات الصفحة الرئيسيه من خلال ال Frame
-            var mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow.myFrame.Content is Users usersPage)
-            {
-                usersPage.RefreshData();
-            }
-
         }
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
@@ -113,15 +127,26 @@ namespace WpfHobbies.SubUser
                     MessageBox.Show("תקלה !!");
                 }
             }
+            RefreshData();
+        }
+
+        // הקלדת מספרים בלבד !!
+        private void OnlyNumbers_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // בודק אם התו המוקלד הוא ספרה 0-9
+            Regex regex = new Regex("[^0-9]+");
+
+            // אם התו הוא לא מספר, אנחנו מסמנים שהאירוע טופל (Handled) והתו לא יופיע
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void RefreshData()
+        {
             // حتلنة بيانات الصفحة الرئيسيه من خلال ال Frame
             var mainWindow = Application.Current.MainWindow as MainWindow;
             if (mainWindow.myFrame.Content is Users usersPage)
             {
                 usersPage.RefreshData();
             }
-
         }
-
-   
     }
 }

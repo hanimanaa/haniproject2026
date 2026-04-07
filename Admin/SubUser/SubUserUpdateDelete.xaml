@@ -45,13 +45,13 @@
         <TextBlock Grid.Column="0" Grid.Row="8" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="מאשר קבלת הודעות ?" VerticalAlignment="Center"/>
 
         <!-- TextBox   -->
-        <TextBox x:Name="emailBox" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text=""  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" IsReadOnly="True" Background="#FFE2DEDE" />
-        <TextBox x:Name="fNameBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
-        <TextBox x:Name="lNameBox" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
-        <TextBox x:Name="telBox" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+        <TextBox x:Name="emailBox" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="20" IsReadOnly="True" Background="LightGray" />
+        <TextBox x:Name="fNameBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="10"/>
+        <TextBox x:Name="lNameBox" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="10"/>
+        <TextBox x:Name="telBox"  Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="10" PreviewTextInput="OnlyNumbers_PreviewTextInput" />
 
         <!-- PasswordBox -->
-        <PasswordBox x:Name="passBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  Height="30" Width="200" FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+        <PasswordBox x:Name="passBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  Height="30" Width="200" FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="10" />
 
         <!-- DatePicker   -->
         <DatePicker x:Name="birthdayDP" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"  VerticalAlignment="Center"  FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />

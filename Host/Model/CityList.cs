@@ -14,8 +14,6 @@ namespace Model
     {
         public CityList() { }
 
-        public CityList(IEnumerable<City> list) : base(list) { }
-
-     
+        public CityList(IEnumerable<City> list) : base(list) { }     
     }
 }

@@ -17,8 +17,5 @@ namespace Model
         public string tel { get; set; }
         public City city { get; set; }
         public bool message { get; set; }
-
-
-
     }
 }

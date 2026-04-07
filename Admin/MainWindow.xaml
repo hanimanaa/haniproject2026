@@ -6,7 +6,7 @@
         xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
         xmlns:local="clr-namespace:WpfHobbies"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1400" WindowStartupLocation="CenterScreen">
+        Title="האני מנאע 2026" Height="800" Width="1450" WindowStartupLocation="CenterScreen">
     <Grid FlowDirection="RightToLeft">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -21,7 +21,7 @@
                 <HamburgerMenu:HamburgerMenuItem Icon="images/product.png" Text="Productes" />
                 <HamburgerMenu:HamburgerMenuItem Icon="images/category.png" Text="Category" Selected="Category_Selected" />
                 <HamburgerMenu:HamburgerMenuItem Icon="images/users.png" Text="משתמשים" Selected="Users_Selected"/>
-                <HamburgerMenu:HamburgerMenuItem Icon="images/icon.png" Text="Orders" Selected="Order_Selected"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="images/icon.png" Text="הזמנות" Selected="Order_Selected"/>
                 <HamburgerMenu:HamburgerMenuItem Icon="images/profile.png" Text="Profile"/>
                 <HamburgerMenu:HamburgerMenuItem Icon="images/settings.png" Text="Settings"/>
                 <HamburgerMenu:HamburgerMenuItem/>

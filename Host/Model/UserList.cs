@@ -13,7 +13,6 @@ namespace Model
     {
         public UserList() { }
 
-        public UserList(IEnumerable<User> list) : base(list) { }
-     
+        public UserList(IEnumerable<User> list) : base(list) { }     
     }
 }

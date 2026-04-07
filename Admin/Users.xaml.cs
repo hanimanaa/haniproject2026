@@ -26,14 +26,20 @@ namespace WpfHobbies
         {
             InitializeComponent();
             UsersDG.ItemsSource = srv.SelectAllUsers();
+            CountUsersTB.Text = " Count Users : " + UsersDG.Items.Count;
 
         }
 
         private void UsersDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            User user = new User();
+            User user = new User();        
             user = (User)UsersDG.SelectedItem;
-            this.SubFrame.Navigate(new SubUser.SubUserUpdateDelete(user));
+           
+            // בדיקה אם בחפש לא נבחר משתמש
+            if (user != null)
+            {
+                this.SubFrame.Navigate(new SubUser.SubUserUpdateDelete(user));
+            }
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
@@ -56,10 +62,23 @@ namespace WpfHobbies
         {
             UsersDG.ItemsSource = srv.SelectAllUsers();
         }
-        // دالة تحدث بيانات الصفحة
+
+        //دالة تحدث بيانات الصفحة حسب البحث  
         public void SearchData(User user)
         {
-            UsersDG.ItemsSource = srv.SearchUsers(user);
+            if (srv.SearchUsers(user).Count != 0)
+            {
+                UsersDG.ItemsSource = srv.SearchUsers(user);
+                CountUsersTB.Text = " Count Users : " + UsersDG.Items.Count;
+
+            }
+            else
+            {
+                MessageBox.Show("אין משתמשים מתאימים");
+                RefreshData();
+                CountUsersTB.Text = " Count Users : " + UsersDG.Items.Count;
+            }
         }
+      
     }
 }

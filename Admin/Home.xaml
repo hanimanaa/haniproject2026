@@ -7,16 +7,79 @@
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1400"
       Title="Home">
+    <Grid Grid.Column="1" Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="487,143,0,0" TextWrapping="Wrap" FontSize="40" Text="Home" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="403,196,0,0" TextWrapping="Wrap" FontSize="40" Text="Wellcom Admin" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="351" Margin="362,281,0,0" VerticalAlignment="Top" Width="430" Source="images\home.png"/>
-        <TextBlock x:Name="dateTB" HorizontalAlignment="Left" Margin="855,143,0,0" TextWrapping="Wrap" FontSize="40" Text="------------" VerticalAlignment="Top"/>
+        <StackPanel Grid.Row="0" Margin="0,0,0,30" FlowDirection="RightToLeft">
+            <TextBlock Text="לוח בקרה" FontSize="32" FontWeight="Bold" Foreground="#1E293B"/>
+            <TextBlock Text="ברוך הבא, הנה סיכום המערכת להיום" Foreground="#64748B" FontSize="14"/>
+        </StackPanel>
 
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
-                   Margin="420,704,751,78" FontSize="14" 
-                   Text="Copyright &#xA9; 2025-2026 Hani Manaa "/>
+        <UniformGrid Grid.Row="1" Columns="3" Height="150" Margin="0,0,0,20" FlowDirection="RightToLeft">
+            <Border Background="#F4F7F9" CornerRadius="15" Margin="0,0,15,0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="לקוחות" Foreground="DarkGreen"  FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="userCountTB" Text="30" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border Background="#F4F7F9" CornerRadius="15" Margin="0,0,15,0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="הזמנות" Foreground="DarkSalmon"  FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="userCountTB2" Text="30" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border Background="#F4F7F9" CornerRadius="15" Margin="0,0,15,0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="מוצרים" Foreground="DarkSlateBlue"  FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="userCountTB3" Text="100" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+        <UniformGrid Grid.Row="2" Columns="3" Height="150" Margin="0,0,0,20" FlowDirection="RightToLeft">
+            <Border Background="#F4F7F9" CornerRadius="15" Margin="0,0,15,0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="קטגוריות" Foreground="DarkRed"  FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="userCountTB4" Text="5" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border Background="#F4F7F9" CornerRadius="15" Margin="0,0,15,0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="הודעות" Foreground="Maroon"  FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="userCountTB5" Text="23" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border Background="#F4F7F9" CornerRadius="15" Margin="0,0,15,0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="ערים" Foreground="MediumSeaGreen"  FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="userCountTB6" Text="35" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+        <UniformGrid Grid.Row="3" Columns="1" Height="100" Margin="0,0,0,20" FlowDirection="RightToLeft">
+            <Border Background="#F4F7F9" CornerRadius="15" Margin="0,0,15,0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock x:Name="dateTB" Text="---------" Foreground="DarkViolet"  FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+        <UniformGrid Grid.Row="4" Columns="1" Height="50" Margin="0,0,0,20" FlowDirection="RightToLeft">
+            <Border Background="#F4F7F9" CornerRadius="15" Margin="0,0,10,0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock x:Name="D" Text="האני מנאע - 2026" Foreground="DarkSlateBlue"  FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </UniformGrid>
 
     </Grid>
+   
+
 </Page>
+
+    
+    

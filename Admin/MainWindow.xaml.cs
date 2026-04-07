@@ -55,7 +55,7 @@ namespace WpfHobbies
 
         private void Order_Selected(object sender, RoutedEventArgs e)
         {
-
+            this.myFrame.Navigate(new Orders());
         }
     }
 }

@@ -33,24 +33,26 @@
         </Grid.ColumnDefinitions>
 
         <!-- TextBlock   -->
-        <TextBlock Grid.Column="0" Grid.Row="0" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="דואר אלקטרוני" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="שם פרטי" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="שם משפחה" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="טלפון" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="0" Grid.Row="4" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="עיר" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" FontSize="12" FontWeight="Bold" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Grid.ColumnSpan="2"
+                    Text="שימו לב: החיפוש מתבצע לפי התאמה לאחד או יותר מהשדות שמילאתם.&#x0a; המערכת תציג את כל התוצאות שעונות על לפחות אחד מהקריטריונים." />
+        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="דואר אלקטרוני" VerticalAlignment="Center" />
+        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="שם פרטי" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="שם משפחה" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="4" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="טלפון" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap" Text="עיר" VerticalAlignment="Center"/>
 
         <!-- TextBox   -->
-        <TextBox x:Name="emailBox" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text=" "  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
-        <TextBox x:Name="fNameBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text=" " HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
-        <TextBox x:Name="lNameBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text=" " HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
-        <TextBox x:Name="telBox" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" Text=" " HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+        <TextBox x:Name="emailBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="20" />
+        <TextBox x:Name="fNameBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="10"/>
+        <TextBox x:Name="lNameBox" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="10" />
+        <TextBox x:Name="telBox" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="200" FontSize="16" Margin="10,0,0,0" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="10" PreviewTextInput="OnlyNumbers_PreviewTextInput" />
 
         <!-- ComboBox  -->
-        <ComboBox x:Name="cityCB" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Width="200" FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cityCB" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Width="200" FontSize="16" Margin="10,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
 
         <!-- Button  -->
-        <StackPanel Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center"  Orientation="Horizontal" >
+        <StackPanel Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center"  Orientation="Horizontal" >
             <Button x:Name="SearchBtn" Content="חפש" Margin="10,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Width="95" FontSize="16" Click="SearchBtn_Click"  />
             <Button x:Name="resetBtn" Content="ביטול" Margin="10,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Width="95" FontSize="16" Click="resetBtn_Click" />
         </StackPanel>

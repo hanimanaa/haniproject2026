@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfHobbies.ServiceReference1;
+
 
 namespace WpfHobbies
 {
@@ -20,11 +22,13 @@ namespace WpfHobbies
     /// </summary>
     public partial class Home : Page
     {
+        Service1Client srv = new Service1Client();
         public Home()
         {
             InitializeComponent();
             string dt = DateTime.Now.ToShortDateString();
             dateTB.Text = dt;
+            userCountTB.Text = srv.CountUsers().ToString();
         }
     }
 }
