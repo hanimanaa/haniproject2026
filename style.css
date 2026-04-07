@@ -123,6 +123,10 @@ main.content, section, pre, table, .image-gallery {
     background-color: #e9f5ff; 
     color: #007bff;
 }
+.top-navbar ul.nav-links li {
+    position: relative;
+    display: inline-block;
+}
 
 /* ------------------------------------------- */
 /* 🌟 تنسيقات القائمة المنسدلة 🌟 */
