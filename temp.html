@@ -23,26 +23,26 @@
     opacity:0.7;
   }
   /* إضافة الصورة الشخصية في الخلفية */
-body::after {
+/* إضافة الصورة الشخصية في الخلفية بشكل ثابت */
+body::before {
     content: "";
-    background-image: url('images/UsersUpdateDelete.png'); /* استبدل هذا بمسار صورتك */
+    /* تأكد من وضع الصورة في مجلد images وتغيير الاسم هنا */
+    background-image: url('images/relationships.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom left;
     
-    /* تحديد الشفافية */
-    opacity: 0.3; 
-    
-    /* جعلها ثابتة في الشاشة */
+    /* الشفافية والتموضع */
+    opacity: 0.2; 
     position: fixed;
-    bottom: 20px; /* مسافة بسيطة من الأسفل */
-    left: 20px;   /* مسافة بسيطة من اليسار */
+    bottom: 10px;
+    left: 10px;
     
-    /* تحديد حجم الصورة */
-    width: 250px; 
-    height: 350px;
+    /* الأبعاد - يمكنك التحكم بها من هنا */
+    width: 300px; 
+    height: 300px;
     
-    /* التأكد من أنها خلف المحتوى ولا تعيق الضغط على الروابط */
+    /* الترتيب لضمان ظهورها خلف النصوص */
     z-index: -1; 
     pointer-events: none;
 }
