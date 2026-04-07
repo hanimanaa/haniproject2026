@@ -10,7 +10,7 @@ body {
     scroll-behavior: smooth; 
 }
 
-/* 🌟 إضافة الصورة الشخصية بنمط عائم وثابت 🌟 */
+/* 🌟 إضافة الصورة الشخصية العائمة دون التأثير على التصميم 🌟 */
 body::before {
     content: "";
     background-image: url('images/hani.png'); 
@@ -23,25 +23,19 @@ body::before {
     width: 220px; 
     height: 220px;
     opacity: 0.3; 
-    display: block;
-    z-index: 999999 !important; 
+    z-index: 9999; 
     pointer-events: none; 
 }
 
-/* ضمان ترتيب الطبقات للمحتوى */
-main.content, section, pre, table, .image-gallery {
-    position: relative;
-    z-index: 1;
-}
-
 /* ------------------------------------------- */
-/* 🌟 تنسيقات الترويسة (Header) 🌟 */
+/* 🌟 تنسيقات الترويسة (Header) - التصميم الأصلي 🌟 */
 /* ------------------------------------------- */
 .header {
     background-color: white; 
     color: #333;
     padding: 0;
     text-align: center;
+    border-bottom: none; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
     position: sticky; 
     top: 0;
@@ -75,7 +69,7 @@ main.content, section, pre, table, .image-gallery {
     white-space: nowrap;
 }
 
-/* 🌟 شريط التنقل الرئيسي (Top Navbar) 🌟 */
+/* 🌟 شريط التنقل (Menu) - العودة للتصميم الأصلي 🌟 */
 .top-navbar {
     background-color: white; 
     padding: 15px 15%; 
@@ -134,7 +128,7 @@ main.content, section, pre, table, .image-gallery {
     margin-top: 30px;
 }
 
-/* تنسيق الجداول */
+/* تنسيق الجداول والأكواد */
 .project-details-table {
     width: 100%;
     border-collapse: collapse;
@@ -142,46 +136,4 @@ main.content, section, pre, table, .image-gallery {
 }
 
 .project-details-table thead th {
-    background-color: #004085;
-    color: white;
-    padding: 12px;
-}
-
-.project-details-table tbody td {
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-/* تنسيق الأكواد */
-pre {
-    direction: ltr; 
-    text-align: left; 
-    background-color: #212529; 
-    color: #e8e8e8; 
-    padding: 20px;
-    border-radius: 8px;
-    overflow-x: auto;
-}
-
-/* تنسيق معرض الصور */
-.image-gallery {
-    display: block;
-    margin-top: 20px;
-}
-
-.image-gallery img {
-    max-width: 100%;
-    height: auto;
-    border: 5px solid #004085; 
-    border-radius: 8px;
-}
-
-/* التذييل (Footer) */
-.footer {
-    background-color: #004085; 
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    z-index: 1000000;
-}
+    background-color: #0040
