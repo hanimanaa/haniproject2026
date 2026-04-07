@@ -3,55 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <style>
-  .custom-paragraph {
-    /* إضافة طبقة سوداء شفافة بنسبة 60% فوق الصورة */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                      url('images/UsersSearch.jpg'); 
-    
-    background-size: cover;
-    background-position: center;
-    padding: 40px;
-    color: #000000; /* نص أبيض ليكون متبايناً مع الخلفية الداكنة */
-    text-shadow: #000000;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 600px;
-    margin: 20px auto;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    opacity:0.7;
+  /* تأكد من أن الجسم لديه خلفية شفافة لكي لا يغطي الصورة */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa; /* لون خلفية الصفحة */
   }
-  /* إضافة الصورة الشخصية في الخلفية */
-/* إضافة الصورة الشخصية في الخلفية بشكل ثابت */
-body::before {
+
+  /* العنصر المسؤول عن الصورة الشخصية الثابتة */
+  body::before {
     content: "";
-    /* تأكد من وضع الصورة في مجلد images وتغيير الاسم هنا */
     background-image: url('images/relationships.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom left;
     
-    /* الشفافية والتموضع */
-    opacity: 0.2; 
+    /* الخصائص الأساسية للظهور */
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    
-    /* الأبعاد - يمكنك التحكم بها من هنا */
+    bottom: 0;
+    left: 0;
     width: 300px; 
     height: 300px;
+    opacity: 0.4; /* زدنا الشفافية قليلاً للتأكد من رؤيتها */
     
-    /* الترتيب لضمان ظهورها خلف النصوص */
-    z-index: -1; 
-    pointer-events: none;
-}
+    /* التعديل الجوهري هنا */
+    z-index: 9999; /* رفع الطبقة للأمام */
+    pointer-events: none; /* لكي لا تمنعك من الضغط على الروابط خلفها */
+    display: block;
+  }
 
-  /* إضافة تأثير عند تمرير الماوس لزيادة الشفافية (اختياري) */
-  .custom-paragraph:hover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+  .custom-paragraph {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                       url('images/UsersSearch.jpg'); 
-    transition: 0.3s;
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    color: #ffffff; /* النص يجب أن يكون أبيض ليتناسب مع الخلفية السوداء */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 100px auto; /* زدنا الهامش لتتمكن من التمرير */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    position: relative; /* لضمان بقاء الفقرة فوق أي شيء آخر */
+    z-index: 1;
   }
 </style>
 </head>
@@ -60,8 +56,11 @@ body::before {
   <p class="custom-paragraph">
     تم تطبيق خفض الشفافية هنا باستخدام طبقة لونية (Overlay). 
     لاحظ كيف أن الصورة تبدو داكنة وهادئة، بينما يظل النص ساطعاً وسهل القراءة.
-    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    مرر للأسفل وستجد الصورة الشخصية ثابتة في الزاوية اليسرى.
   </p>
+
+  <div style="height: 2000px;"></div>
 
 </body>
 </html>
