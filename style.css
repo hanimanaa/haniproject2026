@@ -14,7 +14,7 @@ body {
 body::before {
     content: "";
     /* تأكد من أن المسار صحيح لملف الصورة */
-    background-image: url('images/relationships.png'); 
+    background-image: url('images/hani.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -22,14 +22,14 @@ body::before {
     /* التثبيت في الشاشة بحيث تطفو في الزاوية اليسرى السفلى */
     position: fixed;
     bottom: 15px;
-    left: 15px;
+    left: 0px;
     
     /* أبعاد الصورة */
     width: 220px; 
     height: 220px;
     
     /* الشفافية والظهور */
-    opacity: 0.4; 
+    opacity: 0.6; 
     display: block;
     
     /* زاوية التكديس: لضمان ظهورها فوق محتوى صفحة الـ Host المعقد */
