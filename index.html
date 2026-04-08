@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="homePageStyle.css">
 </head>
 <body>
 
@@ -16,7 +16,7 @@
         <div class="top-header-bar">
             <div class="project-title">
                 <h1>مشروع التخرج - برمجة الويب</h1>
-                <p>مقدم من: هاني مناع</p>
+                <p>مقدم من: هاني مناع</p>              
             </div>
             <div class="contact-info">
                 <span class="email-info">📧 hanimanaa@gmail.com</span>
@@ -25,8 +25,9 @@
         </div>
         
         <nav class="top-navbar">
-            <ul class="nav-links">          
-                <li><a href="index.html"> مبنى المشروع<br><i class="fa-solid fa-code-branch"></i></a></li>
+            <ul class="nav-links">    
+                <li><a href="index.html">الرئيسية<br><i class="fa-solid fa-code-house"></i></a></li>      
+                <li><a href="planning.html">مبنى المشروع<br><i class="fa-solid fa-code-branch"></i></a></li>
                 <li><a href="hostPage.html">الخادم - Host<br><i class="fa-solid fas fa-database"></i></a></li>
                 <li><a href="userPage.html">المستخدم - User<br><i class="fa-solid fa-users-gear"></i></a></li>
                 <li><a href="adminPage.html">المدير - Admin<br><i class="fa-solid fa-user-tie"></i></a></li>     
@@ -34,18 +35,14 @@
             </ul>
         </nav>
     </header>
-   <main class="content">       
-        <h1> مبنى المشروع&nbsp;&nbsp;<i class="fa-solid fa-code-branch"></i></h1>
-        <section id="introduction">
+   <main class="content">        
+     <section id="introduction">
             <h2>المقدمة</h2>            
             <p dir="rtl" style="
-                line-height: 1.8;
-              
-                text-align: right;
-               
+                line-height: 1.5;              
+                text-align: right;               
                 margin: 15px;
-                max-width: 1000px;
-               
+                max-width: 90%;
             ">
                 أعزائي الطلاب، أضع بين أيديكم هذا المشروع ليكون بمثابة <span style="color: #2980b9; font-weight: bold;">خارطة طريق</span> ونموذج استرشادي يوضح المعايير التقنية والهندسية المطلوبة في مشاريع التخرج الخاصة بكم. الهدف من هذا العمل هو تجسيد المفاهيم النظرية التي درسناهم - <span style="background: #e8f4fd; padding: 2px 5px; border-radius: 4px;">من بناء قاعدة البيانات</span>، مروراً بـ <span style="background: #e8f4fd; padding: 2px 5px; border-radius: 4px;">منطق البرمجة (C#)</span>، وصولاً إلى <span style="background: #e8f4fd; padding: 2px 5px; border-radius: 4px;">واجهات المستخدم</span> - وتحويلها إلى نظام متكامل يعمل بفعالية.
 
@@ -74,66 +71,8 @@
                 </span>
             </p>     
         </section>
-           <section id="student">
-        <h2>قائمة الطلاب </h2>
-        <p>اسماء الطلاب ومواضيع المشاريع </p>         
-      
-            <table class="project-details-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th> اسم الطالب</th>
-                        <th> المشروع</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>خطيب مفيد</td><td>-----</td></tr>
-                    <tr><td>2</td><td>خلايله حلا</td><td>-----</td></tr>
-                    <tr><td>3</td><td>خلايلي روتاج</td><td>-----</td></tr>
-                    <tr><td>4</td><td>ذياب احمد</td><td>-----</td></tr>
-                    <tr><td>5</td><td>ذياب هيثم</td><td>-----</td></tr>
-                    <tr><td>6</td><td>زرقاوي ايال</td><td>-----</td></tr>
-                    <tr><td>7</td><td>سرحان خير</td><td>-----</td></tr>
-                    <tr><td>8</td><td>سرحان شادي</td><td>-----</td></tr>
-                    <tr><td>9</td><td>سرحان محمد</td><td>-----</td></tr>
-                    <tr><td>10</td><td>سلامه ربي</td><td>-----</td></tr>
-                    <tr><td>11</td><td>صغير حسين</td><td>-----</td></tr>
-                    <tr><td>12</td><td>صغير رغد</td><td>-----</td></tr>
-                    <tr><td>13</td><td>صغير غالي</td><td>-----</td></tr>
-                    <tr><td>14</td><td>قداح نوران</td><td>-----</td></tr>
-                    <tr><td>15</td><td>كريم محمد</td><td>-----</td></tr>
-                    <tr><td>16</td><td>مناع رؤيه</td><td>-----</td></tr>
-                    <tr><td>17</td><td>مناع طارق</td><td>-----</td></tr>
-                    <tr><td>18</td><td>ناصر نور</td><td>-----</td></tr>
-                    <tr><td>19</td><td>نصراوي طيبة</td><td>-----</td></tr>
-                    <tr><td>20</td><td>يزبكي ايه</td><td>-----</td></tr>                
-                </tbody>
-            </table>
-        </section>
-
-        <section id="problem">
-            <h2>اقسام المشروع</h2>
-            <p>على المشروع ان يشمل ثلاثة طبقات ( الزائرون ,المستخدمين, المدراء) </p>           
-            <div class="image-gallery">
-                <img src="/images/clientServer.jpg" >
-            </div>  
-        </section>
  
-        <section id="architecture">
-            <h2>هيكلية النظام</h2>
-            <p>
-                على المشروع ان يشمل ثلاثة اقسام :
-                <ol>
-                    <li>  الخادم - Host &nbsp;<i class="fa-solid fas fa-database"></i></li>
-                    <li>المستخدم - User&nbsp;<i class="fa-solid fa-users-gear"></i></li>
-                    <li>المدير - Admin&nbsp;<i class="fa-solid fa-user-tie"></i></li>                   
-                </ol>   
-            <p>                   
-            <div class="image-gallery">
-                <img src="/images/digram.jpg" >
-            </div>                          
-        </section>       
-      
+   
       </main>
 
     <footer class="footer">

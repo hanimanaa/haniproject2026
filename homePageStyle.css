@@ -1,0 +1,249 @@
+﻿/* تنسيقات أساسية للخطوط والاتجاه */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+    color: #333;
+    direction: rtl; 
+    text-align: right;
+    scroll-behavior: smooth; 
+}
+/* حل مشكلة تغطية الهيدر للمحتوى عند الانتقال للروابط */
+section[id], div[id], h1[id], h2[id] {
+    scroll-margin-top: 280px; 
+}
+
+/* 🌟 إضافة الصورة الشخصية بنمط عائم وثابت 🌟 */
+body::before {
+    content: "";
+    /* تأكد من أن المسار صحيح لملف الصورة */
+    background-image: url('images/hani.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* التثبيت في الشاشة بحيث تطفو في الزاوية اليسرى السفلى */
+    position: fixed;
+    bottom: 100px;
+    left: 0px;
+    
+    /* أبعاد الصورة */
+    width: 380px; 
+    height: 380px;
+    
+    /* الشفافية والظهور */
+    opacity: 0.6; 
+    display: block;
+    
+    /* زاوية التكديس: لضمان ظهورها فوق محتوى صفحة الـ Host المعقد */
+    z-index: 999999 !important; 
+    
+    /* السماح للماوس بالمرور من خلالها للضغط على ما خلفها */
+    pointer-events: none; 
+}
+.image-gallery img{
+    max-width: 1000px;
+}
+
+/* ضمان أن محتوى الصفحة لا يغطي الصورة العائمة */
+main.content, section, pre, table, .image-gallery {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ------------------------------------------- */
+/* 🌟 تنسيقات الترويسة (Header) 🌟 */
+/* ------------------------------------------- */
+.header {
+    background-color: white; 
+    color: #333;
+    padding: 0;
+    text-align: center;
+    border-bottom: none; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.top-header-bar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 15%; 
+    background-color: #004085; 
+    color: white;
+}
+
+.project-title h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: white;
+    font-weight: 600;
+}
+
+.project-title h1 i {
+    margin-left: 10px;
+    color: white;
+}
+
+.contact-info {
+    font-size: 1em;
+    direction: ltr;
+}
+
+.contact-info span {
+    margin-left: 20px; 
+    color: #cfe2ff;
+    white-space: nowrap;
+}
+
+/* 🌟 شريط التنقل الرئيسي (Top Navbar) 🌟 */
+.top-navbar {
+    background-color: white; 
+    padding: 15px 15%; 
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.top-navbar ul.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
+}
+
+.top-navbar a {
+    text-decoration: none;
+    color: #1a1a1a; 
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    display: block;
+}
+
+.top-navbar a:hover,
+.top-navbar a.active {
+    background-color: #e9f5ff; 
+    color: #007bff;
+}
+
+.top-navbar ul.nav-links li {
+    position: relative;
+    display: inline-block;
+}
+
+/* ------------------------------------------- */
+/* 🌟 تنسيقات القائمة المنسدلة 🌟 */
+/* ------------------------------------------- */
+.has-dropdown {
+    position: relative;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu {
+    list-style: none;
+    padding: 10px 0;
+    position: absolute;
+    top: 100%; 
+    right: 0; 
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0; 
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    min-width: 180px; 
+    z-index: 1001; 
+    text-align: right; 
+}
+
+.dropdown-menu li {
+    display: block !important;
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    display: block !important;
+    width: 100%;
+    box-sizing: border-box; /* لضمان عدم خروج النص عن الإطار الداخلي */
+    padding: 10px 15px;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4f7fa;
+}
+
+/* ------------------------------------------- */
+/* 🌟 تنسيق المحتوى 🌟 */
+/* ------------------------------------------- */
+.content {
+    padding: 50px 15%; 
+    background-color: white; 
+}
+
+.content h1 {
+    color: #004085; 
+    border: 5px solid #004085; 
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+.content h2 {
+    color: #004085; 
+    border-right: 5px solid #004085; 
+    padding-right: 15px;
+}
+
+/* تنسيق الجداول والأكواد */
+.project-details-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.project-details-table thead th {
+    background-color: #004085;
+    color: white;
+    padding: 12px;
+}
+
+.project-details-table tbody td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+pre {
+    direction: ltr; 
+    text-align: left; 
+    background-color: #212529; 
+    color: #e8e8e8; 
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #004085; 
+}
+
+/* التذييل (Footer) */
+.footer {
+    background-color: #004085; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1000000; /* لضمان ظهور الفوتر فوق الصورة عند الوصول لنهاية الصفحة */
+}
