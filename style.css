@@ -11,7 +11,7 @@ body {
 }
 /* حل مشكلة تغطية الهيدر للمحتوى عند الانتقال للروابط */
 section[id], div[id], h1[id], h2[id] {
-    scroll-margin-top: 110px; 
+    scroll-margin-top: 200px; 
 }
 
 /* 🌟 إضافة الصورة الشخصية بنمط عائم وثابت 🌟 */
