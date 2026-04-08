@@ -42,8 +42,8 @@ body::before {
     /* السماح للماوس بالمرور من خلالها للضغط على ما خلفها */
     pointer-events: none; 
 }
-.image-gallery{
-    width: 200px;
+.image-gallery img{
+    max-width: 500px;
 }
 
 /* ضمان أن محتوى الصفحة لا يغطي الصورة العائمة */
