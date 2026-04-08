@@ -43,7 +43,7 @@ body::before {
     pointer-events: none; 
 }
 .image-gallery img{
-    max-width: 500px;
+    max-width: 800px;
 }
 
 /* ضمان أن محتوى الصفحة لا يغطي الصورة العائمة */
