@@ -43,7 +43,7 @@ body::before {
     pointer-events: none; 
 }
 .image-gallery img{
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 /* ضمان أن محتوى الصفحة لا يغطي الصورة العائمة */
@@ -210,7 +210,7 @@ main.content, section, pre, table, .image-gallery {
 
 /* تنسيق الجداول والأكواد */
 .project-details-table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
 }
