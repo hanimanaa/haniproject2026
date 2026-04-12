@@ -237,6 +237,13 @@ pre {
     border: 1px solid #004085; 
 }
 
+.mes {
+    color: red;
+    font-weight: 600; 
+    text-decoration: underline;
+     text-decoration-style: double;
+
+}
 /* التذييل (Footer) */
 .footer {
     background-color: #004085; 
